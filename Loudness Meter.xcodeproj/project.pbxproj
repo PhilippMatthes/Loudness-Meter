@@ -12,6 +12,8 @@
 		BE22026E1F8F7A6C000842A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE22026C1F8F7A6C000842A7 /* Main.storyboard */; };
 		BE2202701F8F7A6C000842A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE22026F1F8F7A6C000842A7 /* Assets.xcassets */; };
 		BE2202731F8F7A6C000842A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */; };
+		BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027A1F8F7B1E000842A7 /* Constants.swift */; };
+		BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BE22026F1F8F7A6C000842A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE2202721F8F7A6C000842A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE2202741F8F7A6C000842A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE22027A1F8F7B1E000842A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				BE2202681F8F7A6C000842A7 /* AppDelegate.swift */,
 				BE22026A1F8F7A6C000842A7 /* ViewController.swift */,
+				BE22027A1F8F7B1E000842A7 /* Constants.swift */,
+				BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */,
 				BE22026C1F8F7A6C000842A7 /* Main.storyboard */,
 				BE22026F1F8F7A6C000842A7 /* Assets.xcassets */,
 				BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			files = (
 				BE22026B1F8F7A6C000842A7 /* ViewController.swift in Sources */,
 				BE2202691F8F7A6C000842A7 /* AppDelegate.swift in Sources */,
+				BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */,
+				BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +285,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S36925NV4E;
 				INFOPLIST_FILE = "Loudness Meter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loudness-Meter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S36925NV4E;
 				INFOPLIST_FILE = "Loudness Meter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loudness-Meter";
 				PRODUCT_NAME = "$(TARGET_NAME)";

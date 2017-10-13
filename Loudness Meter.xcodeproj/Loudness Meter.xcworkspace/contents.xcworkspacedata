@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:">
+   </FileRef>
+   <FileRef
+      location = "group:../AppIcon">
+   </FileRef>
+   <FileRef
+      location = "group:../AppIcon.psd">
+   </FileRef>
+   <FileRef
+      location = "group:../Icons">
+   </FileRef>
+   <FileRef
+      location = "group:../Mockups">
+   </FileRef>
+</Workspace>
