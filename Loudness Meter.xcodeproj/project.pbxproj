@@ -14,9 +14,13 @@
 		BE2202731F8F7A6C000842A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */; };
 		BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027A1F8F7B1E000842A7 /* Constants.swift */; };
 		BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */; };
+		BE9826CB1F9A9F0800DC7180 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE9826C91F9A9F0800DC7180 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6201D9D044A8A32CBE896F78 /* Pods-Loudness Meter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loudness Meter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter.release.xcconfig"; sourceTree = "<group>"; };
+		72B60F25294B8672C0806465 /* Pods_Loudness_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loudness_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBE4E439A5F55E5F9A969BB0 /* Pods-Loudness Meter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loudness Meter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter.debug.xcconfig"; sourceTree = "<group>"; };
 		BE2202651F8F7A6C000842A7 /* Loudness Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loudness Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2202681F8F7A6C000842A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE22026A1F8F7A6C000842A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +30,11 @@
 		BE2202741F8F7A6C000842A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE22027A1F8F7B1E000842A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessBar.swift; sourceTree = "<group>"; };
+		BE9826C81F9A9EB900DC7180 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		BE9826CA1F9A9F0800DC7180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BE9826CC1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		BE9826CD1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BE9826CE1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +53,8 @@
 			children = (
 				BE2202671F8F7A6C000842A7 /* Loudness Meter */,
 				BE2202661F8F7A6C000842A7 /* Products */,
+				CE2F33A6AC431C355307CB24 /* Pods */,
+				F66055B78F8D2404BE8EB595 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +72,7 @@
 				BE2202681F8F7A6C000842A7 /* AppDelegate.swift */,
 				BE22026A1F8F7A6C000842A7 /* ViewController.swift */,
 				BE22027A1F8F7B1E000842A7 /* Constants.swift */,
+				BE9826C91F9A9F0800DC7180 /* Localizable.strings */,
 				BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */,
 				BE22026C1F8F7A6C000842A7 /* Main.storyboard */,
 				BE22026F1F8F7A6C000842A7 /* Assets.xcassets */,
@@ -70,6 +82,23 @@
 			path = "Loudness Meter";
 			sourceTree = "<group>";
 		};
+		CE2F33A6AC431C355307CB24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBE4E439A5F55E5F9A969BB0 /* Pods-Loudness Meter.debug.xcconfig */,
+				6201D9D044A8A32CBE896F78 /* Pods-Loudness Meter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F66055B78F8D2404BE8EB595 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72B60F25294B8672C0806465 /* Pods_Loudness_Meter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE2202771F8F7A6C000842A7 /* Build configuration list for PBXNativeTarget "Loudness Meter" */;
 			buildPhases = (
+				29675C6C07755E00D744F054 /* [CP] Check Pods Manifest.lock */,
 				BE2202611F8F7A6C000842A7 /* Sources */,
 				BE2202621F8F7A6C000842A7 /* Frameworks */,
 				BE2202631F8F7A6C000842A7 /* Resources */,
+				F1528E0386FEC8CF0FB914C1 /* [CP] Embed Pods Frameworks */,
+				FC3B46956B1F239A46E05A1B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -113,6 +145,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = BE22025C1F8F7A6C000842A7;
 			productRefGroup = BE2202661F8F7A6C000842A7 /* Products */;
@@ -130,12 +163,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE2202731F8F7A6C000842A7 /* LaunchScreen.storyboard in Resources */,
+				BE9826CB1F9A9F0800DC7180 /* Localizable.strings in Resources */,
 				BE2202701F8F7A6C000842A7 /* Assets.xcassets in Resources */,
 				BE22026E1F8F7A6C000842A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29675C6C07755E00D744F054 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loudness Meter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1528E0386FEC8CF0FB914C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSiriWaveformView/SwiftSiriWaveformView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSiriWaveformView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3B46956B1F239A46E05A1B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE2202611F8F7A6C000842A7 /* Sources */ = {
@@ -156,6 +244,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE22026D1F8F7A6C000842A7 /* Base */,
+				BE9826C81F9A9EB900DC7180 /* en */,
+				BE9826CC1F9AA07300DC7180 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -164,8 +254,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE2202721F8F7A6C000842A7 /* Base */,
+				BE9826CD1F9AA07300DC7180 /* de */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BE9826C91F9A9F0800DC7180 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE9826CA1F9A9F0800DC7180 /* Base */,
+				BE9826CE1F9AA07300DC7180 /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -175,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -219,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -232,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -270,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -280,6 +382,7 @@
 		};
 		BE2202781F8F7A6C000842A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBE4E439A5F55E5F9A969BB0 /* Pods-Loudness Meter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +399,7 @@
 		};
 		BE2202791F8F7A6C000842A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6201D9D044A8A32CBE896F78 /* Pods-Loudness Meter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

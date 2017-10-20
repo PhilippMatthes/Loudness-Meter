@@ -143,7 +143,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
         if audioRecorder != nil
         {
             audioRecorder!.updateMeters()
-            var decibel = CGFloat(audioRecorder!.peakPower(forChannel: 0) + 92)
+            let x = Double(audioRecorder!.peakPower(forChannel: 0))
+            var decibel = CGFloat( 8.43e-4*pow(x,3) + 0.14*pow(x,2) + 7.54*x + 137.92 )
             if decibel > 140 {
                 decibel = 140
             }
