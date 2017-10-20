@@ -71,11 +71,6 @@
                                             <constraint firstAttribute="height" constant="89" id="GUM-jQ-Usp"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpP-bH-YYf" customClass="DrawWaveform" customModule="Loudness_Meter" customModuleProvider="target">
-                                        <rect key="frame" x="-10" y="356" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
