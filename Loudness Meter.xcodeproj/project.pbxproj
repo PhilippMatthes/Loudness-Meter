@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6AC4A685F6453BF0B378516 /* Pods_Loudness_Meter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B60F25294B8672C0806465 /* Pods_Loudness_Meter.framework */; };
+		BE18C8911F9B502000751759 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE18C8921F9B502000751759 /* Charts.framework */; };
 		BE2202691F8F7A6C000842A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2202681F8F7A6C000842A7 /* AppDelegate.swift */; };
 		BE22026B1F8F7A6C000842A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22026A1F8F7A6C000842A7 /* ViewController.swift */; };
 		BE22026E1F8F7A6C000842A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE22026C1F8F7A6C000842A7 /* Main.storyboard */; };
@@ -14,13 +16,19 @@
 		BE2202731F8F7A6C000842A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */; };
 		BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027A1F8F7B1E000842A7 /* Constants.swift */; };
 		BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */; };
+		BE95385E1F9B4A8A00CB7EF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */; };
+		BE9538601F9B4A9D00CB7EF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */; };
 		BE9826CB1F9A9F0800DC7180 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE9826C91F9A9F0800DC7180 /* Localizable.strings */; };
+		BEFD5DED1F9B8113004FB661 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DEC1F9B8113004FB661 /* Measurement.swift */; };
+		BEFD5DEF1F9B8212004FB661 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */; };
+		BEFD5DF11F9B8CD6004FB661 /* MeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6201D9D044A8A32CBE896F78 /* Pods-Loudness Meter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loudness Meter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter.release.xcconfig"; sourceTree = "<group>"; };
 		72B60F25294B8672C0806465 /* Pods_Loudness_Meter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loudness_Meter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE4E439A5F55E5F9A969BB0 /* Pods-Loudness Meter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loudness Meter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter.debug.xcconfig"; sourceTree = "<group>"; };
+		BE18C8921F9B502000751759 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2202651F8F7A6C000842A7 /* Loudness Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loudness Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2202681F8F7A6C000842A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE22026A1F8F7A6C000842A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,11 +38,18 @@
 		BE2202741F8F7A6C000842A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE22027A1F8F7B1E000842A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoudnessBar.swift; sourceTree = "<group>"; };
-		BE9826C81F9A9EB900DC7180 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BE9826CA1F9A9F0800DC7180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BE9826CC1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		BE9826CD1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BE9826CE1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BED4D2C81F9B4FC20001CD95 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Charts; path = ../dragtimer/Pods/Charts; sourceTree = "<group>"; };
+		BED4D2CA1F9B4FE40001CD95 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Charts; path = ../dragtimer/Pods/Charts/Source/Charts; sourceTree = "<group>"; };
+		BEFD5DEC1F9B8113004FB661 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementCell.swift; sourceTree = "<group>"; };
+		BEFD5DF31F9CA410004FB661 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		BEFD5DF51F9CA452004FB661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE18C8911F9B502000751759 /* Charts.framework in Frameworks */,
+				B6AC4A685F6453BF0B378516 /* Pods_Loudness_Meter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +88,15 @@
 			children = (
 				BE2202681F8F7A6C000842A7 /* AppDelegate.swift */,
 				BE22026A1F8F7A6C000842A7 /* ViewController.swift */,
+				BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */,
 				BE22027A1F8F7B1E000842A7 /* Constants.swift */,
 				BE9826C91F9A9F0800DC7180 /* Localizable.strings */,
 				BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */,
 				BE22026C1F8F7A6C000842A7 /* Main.storyboard */,
+				BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */,
+				BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */,
+				BEFD5DEC1F9B8113004FB661 /* Measurement.swift */,
+				BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */,
 				BE22026F1F8F7A6C000842A7 /* Assets.xcassets */,
 				BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */,
 				BE2202741F8F7A6C000842A7 /* Info.plist */,
@@ -94,6 +116,9 @@
 		F66055B78F8D2404BE8EB595 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE18C8921F9B502000751759 /* Charts.framework */,
+				BED4D2C81F9B4FC20001CD95 /* Charts */,
+				BED4D2CA1F9B4FE40001CD95 /* Charts */,
 				72B60F25294B8672C0806465 /* Pods_Loudness_Meter.framework */,
 			);
 			name = Frameworks;
@@ -197,11 +222,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Loudness Meter/Pods-Loudness Meter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftSiriWaveformView/SwiftSiriWaveformView.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSiriWaveformView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -233,7 +258,12 @@
 				BE22026B1F8F7A6C000842A7 /* ViewController.swift in Sources */,
 				BE2202691F8F7A6C000842A7 /* AppDelegate.swift in Sources */,
 				BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */,
+				BE9538601F9B4A9D00CB7EF3 /* DetailViewController.swift in Sources */,
+				BEFD5DEF1F9B8212004FB661 /* DataHandler.swift in Sources */,
+				BE95385E1F9B4A8A00CB7EF3 /* TableViewController.swift in Sources */,
 				BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */,
+				BEFD5DED1F9B8113004FB661 /* Measurement.swift in Sources */,
+				BEFD5DF11F9B8CD6004FB661 /* MeasurementCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +274,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				BE22026D1F8F7A6C000842A7 /* Base */,
-				BE9826C81F9A9EB900DC7180 /* en */,
-				BE9826CC1F9AA07300DC7180 /* de */,
+				BEFD5DF31F9CA410004FB661 /* de */,
+				BEFD5DF51F9CA452004FB661 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

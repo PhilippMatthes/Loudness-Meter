@@ -1,9 +1,39 @@
 
+/* Class = "UILabel"; text = "average"; ObjectID = "576-b6-sm3"; */
+"576-b6-sm3.text" = "durchschn.";
+
 /* Class = "UILabel"; text = "loading"; ObjectID = "7Se-Z4-zWx"; */
 "7Se-Z4-zWx.text" = "lädt";
+
+/* Class = "UILabel"; text = "140"; ObjectID = "BH5-IZ-85y"; */
+"BH5-IZ-85y.text" = "140";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "F6b-ej-xIf"; */
 "F6b-ej-xIf.text" = "0";
 
+/* Class = "UILabel"; text = "dB"; ObjectID = "Hfj-q9-W4q"; */
+"Hfj-q9-W4q.text" = "dB";
+
+/* Class = "UITableViewController"; title = "TableViewController"; ObjectID = "Hqf-dk-WsH"; */
+"Hqf-dk-WsH.title" = "TableViewController";
+
+/* Class = "UILabel"; text = "21 Oktober 2017"; ObjectID = "IvG-Ac-zzG"; */
+"IvG-Ac-zzG.text" = "21 Oktober 2017";
+
+/* Class = "UINavigationItem"; title = "Recording"; ObjectID = "Lk6-jq-e9J"; */
+"Lk6-jq-e9J.title" = "Messung";
+
+/* Class = "UIViewController"; title = "DetailViewController"; ObjectID = "MhZ-u1-n7w"; */
+"MhZ-u1-n7w.title" = "DetailViewController";
+
+/* Class = "UINavigationItem"; title = "Saved Recordings"; ObjectID = "Tl4-qr-O8W"; */
+"Tl4-qr-O8W.title" = "Logbuch";
+
+/* Class = "UILabel"; text = "dB"; ObjectID = "jOe-j2-AQw"; */
+"jOe-j2-AQw.text" = "dB";
+
 /* Class = "UILabel"; text = "dB"; ObjectID = "uWz-Dh-QNg"; */
 "uWz-Dh-QNg.text" = "dB";
+
+/* Class = "UILabel"; text = "140"; ObjectID = "zWg-53-zQR"; */
+"zWg-53-zQR.text" = "140";

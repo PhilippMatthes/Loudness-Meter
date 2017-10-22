@@ -15,6 +15,8 @@ struct Constants {
     
     static let backgroundColor0 = UIColor(rgb: 0x3F5EFB, alpha: 1.0)
     static let backgroundColor1 = UIColor(rgb: 0xFC466B, alpha: 1.0)
+    static let whiteColor = UIColor(rgb: 0xFFFFFF, alpha: 1.0)
+    static let transparentColor = UIColor(rgb: 0xFFFFFF, alpha: 0.3)
 
     
     static let font = UIFont(name: "Futura", size: 22.0)

@@ -35,17 +35,16 @@ class LoudnessBar: UIView {
         line.strokeColor = UIColor.white.cgColor
         line.lineWidth = 20
         line.lineCap = kCALineCapRound
-        line.lineJoin = kCALineJoinRound
         line.strokeEnd = 0.0
         view.layer.addSublayer(line)
     }
     
     func animateBar(duration: TimeInterval, currentValue: CGFloat, maxValue: CGFloat) {
         
+        
         let strokeAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         strokeAnimation.duration = duration
-        
         strokeAnimation.fromValue = percentage
         percentage = currentValue/maxValue
         strokeAnimation.toValue = percentage

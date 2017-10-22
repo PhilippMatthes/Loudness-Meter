@@ -6,7 +6,7 @@
   Copyright © 2017 Philipp Matthes. All rights reserved.
 */
 
-"0" = "Kein hörbares Geräusch";
+"0" = "Hörschwelle";
 "10" = "Blätterrascheln in der Ferne ohne Umgebungsgeräusche";
 "20" = "Stille im TV-Studio";
 "30" = "Normales, stilles Schlafzimmer";
@@ -21,3 +21,6 @@
 "120" = "Unwohlseinsgrenze";
 "130" = "Schmerzgrenze, ernsthafte Schädigung des Gehörs möglich";
 "140" = "Unmittelbar neben einem startenden Kampfflugzeug";
+
+"messung" = "Messung";
+"gespeicherteMessungen" = "Logbuch";
