@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SwiftRater
 
 class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDelegate {
     
@@ -71,6 +72,10 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
         startRecording()
         startUpdatingLevels()
         startUpdatingInformation(withInterval: 2.0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        SwiftRater.check()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
