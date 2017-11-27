@@ -10,59 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.878549"
+            timestampString = "533497073.436392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
             endingLineNumber = "165"
-            landmarkName = "finishRecording(success:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.878706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "setUpRecorder()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.878838"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "startRecording()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.878977"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
             landmarkName = "getDocumentsDirectory()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879105"
+            timestampString = "533497073.436489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "audioRecorderDidFinishRecording(_:successfully:)"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "startRecording()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,7 +42,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879228"
+            timestampString = "533497073.436562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "setUpBackground(with:on:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Loudness Meter/ViewController.swift"
+            timestampString = "533497073.43664"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "setUpRecorder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Loudness Meter/ViewController.swift"
+            timestampString = "533497073.436716"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "finishRecording(success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Loudness Meter/ViewController.swift"
+            timestampString = "533497073.436788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "201"
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879359"
+            timestampString = "533497073.43686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "getDocumentsDirectory()"
+            landmarkName = "setUpRecorder()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.87948"
+            timestampString = "533497073.436927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "161"
             endingLineNumber = "161"
-            landmarkName = "getDocumentsDirectory()"
+            landmarkName = "setUpRecorder()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879611"
+            timestampString = "533497073.436996"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "getDocumentsDirectory()"
+            landmarkName = "setUpRecorder()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,12 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879744"
+            timestampString = "533497073.437065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "setUpRecorder()"
+            landmarkName = "startRecording()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,13 +170,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.879896"
+            timestampString = "533497073.437138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "138"
             endingLineNumber = "138"
-            landmarkName = "setUpRecorder()"
-            landmarkType = "7">
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.88003"
+            timestampString = "533497073.437208"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.88016"
+            timestampString = "533497073.437276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880294"
+            timestampString = "533497073.437343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880415"
+            timestampString = "533497073.437406"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
@@ -250,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880538"
+            timestampString = "533497073.437462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
             endingLineNumber = "96"
-            landmarkName = "setUpLoudnessBar(with:on:)"
+            landmarkName = "setUpInterfaceDesign()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,12 +266,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880666"
+            timestampString = "533497073.437518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "setUpLoudnessBar(with:on:)"
+            landmarkName = "setUpInterfaceDesign()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,12 +282,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880786"
+            timestampString = "533497073.437575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "setUpLoudnessBar(with:on:)"
+            landmarkName = "setUpInterfaceDesign()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.880906"
+            timestampString = "533497073.43763"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.881034"
+            timestampString = "533497073.437686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Loudness Meter/ViewController.swift"
-            timestampString = "530359660.881256"
+            timestampString = "533497073.43778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"

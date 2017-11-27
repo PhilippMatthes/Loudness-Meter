@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Loudness Meter
+
+  Created by Philipp Matthes on 27.11.17.
+  Copyright © 2017 Philipp Matthes. All rights reserved.
+*/
+
+
+"CFBundleDisplayName" = "볼륨";
+"CFBundleName" = "볼륨";
