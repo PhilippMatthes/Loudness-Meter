@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftRater
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        SwiftRater.daysUntilPrompt = 1
+        SwiftRater.usesUntilPrompt = 3
+        SwiftRater.significantUsesUntilPrompt = 3
+        SwiftRater.daysBeforeReminding = 1
+        SwiftRater.showLaterButton = true
+        SwiftRater.appLaunched()
+        
         return true
     }
 
