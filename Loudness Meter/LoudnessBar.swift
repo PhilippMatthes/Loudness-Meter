@@ -41,7 +41,6 @@ class LoudnessBar: UIView {
     
     func animateBar(duration: TimeInterval, currentValue: CGFloat, maxValue: CGFloat) {
         
-        
         let strokeAnimation = CABasicAnimation(keyPath: "strokeEnd")
         
         strokeAnimation.duration = duration

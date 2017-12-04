@@ -188,11 +188,16 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
         if audioRecorder != nil
         {
             audioRecorder!.updateMeters()
-            let x = Double(audioRecorder!.peakPower(forChannel: 0))
+            let x = CGFloat(audioRecorder!.peakPower(forChannel: 0))
             
             
             
-            var decibel = CGFloat( 8.43e-4*pow(x,3) + 0.14*pow(x,2) + 7.54*x + 137.92 )
+            var decibel: CGFloat = 0
+            
+            for exponent in 0..<State.shared.coefficients.endIndex {
+                decibel += pow(x,CGFloat(exponent)) * State.shared.coefficients[exponent]
+            }
+            
             if decibel < 0 {
                 decibel = 0
             }

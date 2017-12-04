@@ -19,9 +19,15 @@
 		BE49D4821FCC84D2001A41A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE49D4841FCC84D2001A41A5 /* InfoPlist.strings */; };
 		BE95385E1F9B4A8A00CB7EF3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */; };
 		BE9538601F9B4A9D00CB7EF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */; };
+		BE9781C11FD5737400286098 /* BarChartExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781C01FD5737400286098 /* BarChartExtension.swift */; };
+		BE9781C31FD576A400286098 /* SwiftRaterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781C21FD576A400286098 /* SwiftRaterExtension.swift */; };
+		BE9781C51FD576AE00286098 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781C41FD576AE00286098 /* UserDefaultsExtension.swift */; };
+		BE9781C71FD576BC00286098 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781C61FD576BC00286098 /* UIViewExtension.swift */; };
+		BE9781C91FD576D400286098 /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781C81FD576D400286098 /* UINavigationBarExtension.swift */; };
+		BE9781CB1FD576FD00286098 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781CA1FD576FC00286098 /* State.swift */; };
+		BE9781CD1FD57A7000286098 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9781CC1FD57A7000286098 /* UIColorExtension.swift */; };
 		BE9826CB1F9A9F0800DC7180 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE9826C91F9A9F0800DC7180 /* Localizable.strings */; };
 		BEFD5DED1F9B8113004FB661 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DEC1F9B8113004FB661 /* Measurement.swift */; };
-		BEFD5DEF1F9B8212004FB661 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */; };
 		BEFD5DF11F9B8CD6004FB661 /* MeasurementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,13 +97,19 @@
 		BE49D4B91FCC858A001A41A5 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		BE9781C01FD5737400286098 /* BarChartExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartExtension.swift; sourceTree = "<group>"; };
+		BE9781C21FD576A400286098 /* SwiftRaterExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRaterExtension.swift; sourceTree = "<group>"; };
+		BE9781C41FD576AE00286098 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		BE9781C61FD576BC00286098 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BE9781C81FD576D400286098 /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
+		BE9781CA1FD576FC00286098 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		BE9781CC1FD57A7000286098 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BE9826CA1F9A9F0800DC7180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE9826CD1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BE9826CE1F9AA07300DC7180 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BED4D2C81F9B4FC20001CD95 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Charts; path = ../dragtimer/Pods/Charts; sourceTree = "<group>"; };
 		BED4D2CA1F9B4FE40001CD95 /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Charts; path = ../dragtimer/Pods/Charts/Source/Charts; sourceTree = "<group>"; };
 		BEFD5DEC1F9B8113004FB661 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
-		BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementCell.swift; sourceTree = "<group>"; };
 		BEFD5DF31F9CA410004FB661 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		BEFD5DF51F9CA452004FB661 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -137,23 +149,61 @@
 		BE2202671F8F7A6C000842A7 /* Loudness Meter */ = {
 			isa = PBXGroup;
 			children = (
-				BE2202681F8F7A6C000842A7 /* AppDelegate.swift */,
-				BE22026A1F8F7A6C000842A7 /* ViewController.swift */,
-				BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */,
+				BE9781CA1FD576FC00286098 /* State.swift */,
 				BE22027A1F8F7B1E000842A7 /* Constants.swift */,
+				BE9781BF1FD5736400286098 /* Extensions */,
+				BE9781CF1FD57AA600286098 /* UI Elements */,
+				BE9781CE1FD57A9800286098 /* Data */,
+				BE9781BE1FD5727E00286098 /* Controllers */,
 				BE9826C91F9A9F0800DC7180 /* Localizable.strings */,
-				BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */,
-				BE22026C1F8F7A6C000842A7 /* Main.storyboard */,
-				BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */,
-				BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */,
-				BEFD5DEC1F9B8113004FB661 /* Measurement.swift */,
-				BEFD5DEE1F9B8212004FB661 /* DataHandler.swift */,
-				BE22026F1F8F7A6C000842A7 /* Assets.xcassets */,
-				BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */,
-				BE2202741F8F7A6C000842A7 /* Info.plist */,
 				BE49D4841FCC84D2001A41A5 /* InfoPlist.strings */,
+				BE22026C1F8F7A6C000842A7 /* Main.storyboard */,
+				BE2202711F8F7A6C000842A7 /* LaunchScreen.storyboard */,
+				BE22026F1F8F7A6C000842A7 /* Assets.xcassets */,
+				BE2202741F8F7A6C000842A7 /* Info.plist */,
 			);
 			path = "Loudness Meter";
+			sourceTree = "<group>";
+		};
+		BE9781BE1FD5727E00286098 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE2202681F8F7A6C000842A7 /* AppDelegate.swift */,
+				BE22026A1F8F7A6C000842A7 /* ViewController.swift */,
+				BE95385F1F9B4A9D00CB7EF3 /* DetailViewController.swift */,
+				BE95385D1F9B4A8A00CB7EF3 /* TableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BE9781BF1FD5736400286098 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BE9781C81FD576D400286098 /* UINavigationBarExtension.swift */,
+				BE9781C61FD576BC00286098 /* UIViewExtension.swift */,
+				BE9781C41FD576AE00286098 /* UserDefaultsExtension.swift */,
+				BE9781C21FD576A400286098 /* SwiftRaterExtension.swift */,
+				BE9781C01FD5737400286098 /* BarChartExtension.swift */,
+				BE9781CC1FD57A7000286098 /* UIColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		BE9781CE1FD57A9800286098 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD5DEC1F9B8113004FB661 /* Measurement.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		BE9781CF1FD57AA600286098 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				BE22027B1F8F7B1E000842A7 /* LoudnessBar.swift */,
+				BEFD5DF01F9B8CD6004FB661 /* MeasurementCell.swift */,
+			);
+			name = "UI Elements";
 			sourceTree = "<group>";
 		};
 		CE2F33A6AC431C355307CB24 /* Pods */ = {
@@ -322,15 +372,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE9781C91FD576D400286098 /* UINavigationBarExtension.swift in Sources */,
 				BE22026B1F8F7A6C000842A7 /* ViewController.swift in Sources */,
+				BE9781CD1FD57A7000286098 /* UIColorExtension.swift in Sources */,
+				BE9781C11FD5737400286098 /* BarChartExtension.swift in Sources */,
+				BE9781C31FD576A400286098 /* SwiftRaterExtension.swift in Sources */,
 				BE2202691F8F7A6C000842A7 /* AppDelegate.swift in Sources */,
+				BE9781CB1FD576FD00286098 /* State.swift in Sources */,
 				BE22027D1F8F7B1E000842A7 /* LoudnessBar.swift in Sources */,
 				BE9538601F9B4A9D00CB7EF3 /* DetailViewController.swift in Sources */,
-				BEFD5DEF1F9B8212004FB661 /* DataHandler.swift in Sources */,
+				BE9781C71FD576BC00286098 /* UIViewExtension.swift in Sources */,
 				BE95385E1F9B4A8A00CB7EF3 /* TableViewController.swift in Sources */,
 				BE22027C1F8F7B1E000842A7 /* Constants.swift in Sources */,
 				BEFD5DED1F9B8113004FB661 /* Measurement.swift in Sources */,
 				BEFD5DF11F9B8CD6004FB661 /* MeasurementCell.swift in Sources */,
+				BE9781C51FD576AE00286098 /* UserDefaultsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

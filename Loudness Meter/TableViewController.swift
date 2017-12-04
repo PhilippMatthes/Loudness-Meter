@@ -47,7 +47,6 @@ class TableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editItem
         navigationBar.setItems([navigationItem], animated: false)
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Constants.backgroundColor0]
-        
     }
     
     @objc func doneButtonPressed(_ sender:UITapGestureRecognizer) {
@@ -76,20 +75,21 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Table view cells are reused and should be dequeued using a cell identifier.
+
         let cellIdentifier = "MeasurementCell"
-        
-//        tableView.register(MeasurementCell.self, forCellReuseIdentifier: cellIdentifier)
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MeasurementCell else {
             fatalError("The dequeued cell is not an instance of MeasurementCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
         let measurement = measurements[indexPath.row]
         
-        cell.setUpChart(measurement: measurement)
+        cell.soundChart.setUpChart(withMeasurement: measurement,
+                                   andStyle: .normal,
+                                   withDelegate: cell)
+        cell.reflectionChart.setUpChart(withMeasurement: measurement,
+                                        andStyle: .reflection,
+                                        withDelegate: cell)
         cell.dateLabel.text = measurement.date
         cell.loudnessLabel.text = String(Int(Double(measurement.soundLog!.reduce(0, +)) / Double(measurement.soundLog!.count)))
         
