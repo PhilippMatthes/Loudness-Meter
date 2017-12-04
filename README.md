@@ -1,6 +1,6 @@
 # Volume - dB Loudness Meter
 
-![Supported Platforms](https://img.shields.io/badge/Platform-iOS-lightgrey.svg) ![Release](https://img.shields.io/badge/Release-1.0-blue.svg) ![Build](https://img.shields.io/badge/Build-passing-green.svg) ![AppStore](https://img.shields.io/badge/App%20Store-released-green.svg)
+![Supported Platforms](https://img.shields.io/badge/Platform-iOS-lightgrey.svg) ![Release](https://img.shields.io/badge/Release-1.1-blue.svg) ![Build](https://img.shields.io/badge/Build-passing-green.svg) ![AppStore](https://img.shields.io/badge/App%20Store-released-green.svg)
 
 How loud is it? This app will show you. 
 
