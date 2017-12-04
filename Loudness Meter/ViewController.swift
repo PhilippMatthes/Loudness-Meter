@@ -201,9 +201,11 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
             if decibel < 0 {
                 decibel = 0
             }
+            
             if decibel >= maxLoudness {
                 maxLoudness = decibel
             }
+            
             loudnessLabel.text = String(Int(decibel))
             currentLoudness = decibel
             loudnessBar.animateBar(duration: 0.16, currentValue: decibel, maxValue: maxLoudness)
@@ -282,7 +284,9 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
     @objc func buttonClicked(sender:UITapGestureRecognizer) {
         if isRunning {
             stop()
-            animateButtonReleaseOff(background: buttonBackground)
+            buttonBackground.animateButtonRelease(withBorderColor: Constants.backgroundColor1,
+                                                  width: 4.0,
+                                                  andDuration: 0.1)
             let toImage = UIImage(named: "RecordButton")
             UIView.transition(with: buttonImage,
                               duration: 0.3,
@@ -292,7 +296,9 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
         }
         else {
             start()
-            animateButtonPressOn(background: buttonBackground)
+            buttonBackground.animateButtonPress(withBorderColor: Constants.backgroundColor1,
+                                                width: 4.0,
+                                                andDuration: 0.1)
             let toImage = UIImage(named: "StopButton")
             UIView.transition(with: buttonImage,
                               duration: 0.3,
@@ -319,28 +325,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate, CAAnimationDele
         recordingTimer?.invalidate()
         updateCurrentMeasurement()
         performSegue(withIdentifier: "showDetailView", sender: self)
-    }
-    
-    func animateButtonPressOn(background: UIView) {
-        let borderWidth:CABasicAnimation = CABasicAnimation(keyPath: "borderWidth")
-        borderWidth.fromValue = 0
-        borderWidth.toValue = 4.0
-        borderWidth.duration = 0.1
-        background.layer.borderWidth = 0.0
-        background.layer.borderColor = Constants.backgroundColor1.cgColor
-        background.layer.add(borderWidth, forKey: "Width")
-        background.layer.borderWidth = 4.0
-    }
-    
-    func animateButtonReleaseOff(background: UIView) {
-        let borderWidth:CABasicAnimation = CABasicAnimation(keyPath: "borderWidth")
-        borderWidth.fromValue = 4.0
-        borderWidth.toValue = 0
-        borderWidth.duration = 0.1
-        background.layer.borderWidth = 4.0
-        background.layer.borderColor = Constants.backgroundColor1.cgColor
-        background.layer.add(borderWidth, forKey: "Width")
-        background.layer.borderWidth = 0.0
     }
     
     func updateCurrentMeasurement() {
