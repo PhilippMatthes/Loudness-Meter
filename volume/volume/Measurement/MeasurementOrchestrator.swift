@@ -12,139 +12,62 @@ import Combine
 
 
 class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelegate {
-    enum Error {
-        case initAudioRecorderFailed
-        case setCategoryFailed
-        case setActiveFailed
-        case permissionDenied
-        case finishRecordingFailed
+    
+    struct Data {
+        var isRecording: Bool = false
+        var bands: [Double] = []
     }
     
-    public let objectWillChange = PassthroughSubject<Void, Never>()
+    private var audioInput: TempiAudioInput?
+    private let sampleRate: Float = 44100
+    private let refreshRate = 0.01
+    private let numberOfBands = 11
     
-    private var recordingSession: AVAudioSession?
-    private var audioRecorder: AVAudioRecorder?
-    private var updateTimer: Timer?
-    private var recordingStarted: Date?
-    private var recordingEnded: Date?
-    private var magnitudes: [Double] = []
+    public let objectWillChange = PassthroughSubject<MeasurementOrchestrator.Data, Never>()
     
-    @Published public var currentMagnitude: Magnitude? = nil {
-        willSet{objectWillChange.send()}
+    @Published public var data: MeasurementOrchestrator.Data {
+        willSet{objectWillChange.send(data)}
     }
     
-    @Published public var measurement: Measurement? = nil {
-        willSet{objectWillChange.send()}
+    init(isRecording: Bool = false, bands: [Double] = []) {
+        self.data = .init(isRecording: isRecording, bands: bands)
+        super.init()
     }
     
-    @Published public var isRecording: Bool = false {
-        willSet{objectWillChange.send()}
-    }
-    
-    @Published public var didThrowError: Bool = false {
-        willSet{objectWillChange.send()}
-    }
-    
-    @Published public var error: MeasurementOrchestrator.Error? = nil {
-        willSet{objectWillChange.send()}
-    }
-    
-    private func prepareRecorder() {
-        guard audioRecorder == nil else {return}
-        
-        guard let url = FileManager
-            .default
-            .urls(for: .documentDirectory, in: .userDomainMask)
-            .first?
-            .appendingPathComponent("recording.m4a")
-        else {
-            return
+    public func startRecording() {
+        let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
+            self.audioInputCallback(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
-        
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
-        
-        do {
-            audioRecorder = try AVAudioRecorder(url: url, settings: settings)
-            audioRecorder?.delegate = self
-            audioRecorder?.prepareToRecord()
-            audioRecorder?.isMeteringEnabled = true
-            audioRecorder?.record()
-        } catch {
-            self.error = .initAudioRecorderFailed
-            self.didThrowError = true
-        }
+
+        audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1, refreshRate: refreshRate)
+        audioInput!.startRecording()
+        self.data.isRecording = true
     }
     
-    public func startRecording(completion: (() -> ())? = nil) {
-        prepareRecorder()
-        recordingSession = .sharedInstance()
+    private func audioInputCallback(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
+        // NB: The default buffer size on iOS is 512. This will not give a terribly high resolution.
+        // In practice you'll want to bucket up the buffers into a larger array of at least size 2048.
+        let fft = TempiFFT(withSize: numberOfFrames, sampleRate: sampleRate)
+        fft.windowType = TempiFFTWindowType.hanning
+        fft.fftForward(samples)
+        fft.calculateLinearBands(minFrequency: 0, maxFrequency: fft.nyquistFrequency, numberOfBands: numberOfBands)
+
+        let minDB: Double = -48
         
-        do {
-            try recordingSession?.setCategory(.playAndRecord)
-        } catch {
-            self.error = .setCategoryFailed
-            didThrowError = true
-        }
-        
-        do {
-            try recordingSession?.setActive(true)
-        } catch {
-            self.error = .setActiveFailed
-            self.didThrowError = true
-        }
-        
-        recordingSession?.requestRecordPermission() {
-            [unowned self] allowed in
-            DispatchQueue.main.async {
-                guard let audioRecorder = self.audioRecorder else {return}
-                if allowed {
-                    self.isRecording = true
-                    self.recordingStarted = Date()
-                    audioRecorder.record()
-                    self.updateTimer = .scheduledTimer(
-                        withTimeInterval: 0.1,
-                        repeats: true,
-                        block: self.updateLevels
-                    )
-                    completion?()
-                } else {
-                    self.error = .permissionDenied
-                    self.didThrowError = true
-                }
+        DispatchQueue.main.async {
+            self.data.bands = (0..<fft.numberOfBands).map { bandIndex in
+                let magnitude = fft.magnitudeAtBand(bandIndex)
+                // Incoming magnitudes are linear, making it impossible to see very low or very high values. Decibels to the rescue!
+                let magnitudeDB = Double(TempiFFT.toDB(magnitude))
+                // Normalize the incoming magnitude so that -Inf = 0
+                return max(0, magnitudeDB + abs(minDB))
             }
         }
     }
     
     public func endRecording() {
-        updateTimer?.invalidate()
-        audioRecorder?.stop()
-        audioRecorder = nil
-        
-        self.isRecording = false
-        
-        guard
-            let recordingStarted = recordingStarted,
-            magnitudes.count > 5
-        else {return}
-        
-        self.measurement = Measurement(
-            startDate: recordingStarted,
-            endDate: Date(),
-            magnitudes: self.magnitudes
-        )
-    }
-        
-    @objc func updateLevels(calledBy timer: Timer) {
-        guard let audioRecorder = audioRecorder else {return}
-        
-        audioRecorder.updateMeters()
-        currentMagnitude = Magnitude(audioRecorder.peakPower(forChannel: 0))
-        magnitudes.insert(currentMagnitude!, at: 0)
+        audioInput?.stopRecording()
+        self.data.isRecording = false
     }
     
 }

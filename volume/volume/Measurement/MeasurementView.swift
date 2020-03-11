@@ -15,7 +15,9 @@ struct MeasurementView: View {
     
     var body: some View {        
         return VStack {
-            if orchestrator.isRecording {
+            Spacer()
+            
+            if orchestrator.data.isRecording {
                 Button(action: {
                     self.orchestrator.endRecording()
                 }) {
@@ -28,15 +30,14 @@ struct MeasurementView: View {
                     Text("Start Recording")
                 }
             }
-            if orchestrator.measurement != nil {
-                MeasurementGraph(
-                    measurement: orchestrator.measurement!,
-                    color: Color.gray.opacity(0.5)
-                )
-                    .frame(height: 100)
-                    .padding(12)
-            }
+            
+            Spacer()
+            
+            AudioView(bands: self.orchestrator.data.bands)
+                .frame(height: 100)
         }
+        .edgesIgnoringSafeArea(.bottom)
+        
     }
 }
 
@@ -45,7 +46,9 @@ struct MeasurementView: View {
 
 struct MeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        return MeasurementView().environmentObject(MeasurementOrchestrator())
+        return MeasurementView().environmentObject(MeasurementOrchestrator(bands: [
+            0, 10, 40, 20, 50, 60, 10, 0, 10, 20, 32
+        ]))
     }
 }
 
