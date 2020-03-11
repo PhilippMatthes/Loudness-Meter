@@ -16,6 +16,9 @@ struct AudioView: View {
     
     var color: Color = Color.red
     
+    static let gradientStart = Color(red: 240 / 255, green: 0 / 255, blue: 0 / 255)
+    static let gradientEnd = Color(red: 220 / 255, green: 40 / 255, blue: 40 / 255)
+    
     var animatableData: [Double] {
         get { return bands }
         set { bands = newValue }
@@ -57,7 +60,11 @@ struct AudioView: View {
                 path.addLine(to: CGPoint(x: frame.minX, y: frame.maxY))
                 path.addLine(to: CGPoint(x: frame.minX, y: frame.minY))
             }
-            .fill(Color.red)
+            .fill(LinearGradient(
+                gradient: .init(colors: [Self.gradientStart, Self.gradientEnd]),
+                startPoint: .init(x: 0.5, y: 0),
+                endPoint: .init(x: 0.5, y: 0.6)
+            ))
         }
     }
 }

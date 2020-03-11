@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0F73B924190E64004E3F4B /* AudioWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73B824190E64004E3F4B /* AudioWaveView.swift */; };
+		BE0F73BD24193D12004E3F4B /* RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73BC24193D12004E3F4B /* RoundCorner.swift */; };
+		BE0F73BF24195210004E3F4B /* HertzBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73BE24195210004E3F4B /* HertzBar.swift */; };
+		BE0F73C124195FCD004E3F4B /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73C024195FCD004E3F4B /* RecordingButton.swift */; };
+		BE0F73C3241961CF004E3F4B /* MicrophoneAccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */; };
 		BE54E9482417ACD90074BE3B /* MeasurementOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */; };
 		BE54E94A2417DCC40074BE3B /* MeasurementRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */; };
 		BE54E952241801920074BE3B /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E951241801920074BE3B /* AudioView.swift */; };
@@ -34,6 +39,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE0F73B824190E64004E3F4B /* AudioWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWaveView.swift; sourceTree = "<group>"; };
+		BE0F73BC24193D12004E3F4B /* RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCorner.swift; sourceTree = "<group>"; };
+		BE0F73BE24195210004E3F4B /* HertzBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HertzBar.swift; sourceTree = "<group>"; };
+		BE0F73C024195FCD004E3F4B /* RecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
+		BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneAccessButton.swift; sourceTree = "<group>"; };
 		BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementOrchestrator.swift; sourceTree = "<group>"; };
 		BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementRowView.swift; sourceTree = "<group>"; };
 		BE54E951241801920074BE3B /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 		BEAB08882417736B006E9B65 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE54E951241801920074BE3B /* AudioView.swift */,
 				BEF1751624177C7000FBE3C8 /* HexagonParameters.swift */,
 				BEF1751424177C4700FBE3C8 /* BadgeBackground.swift */,
 				BEF17500241773CF00FBE3C8 /* Badge.swift */,
@@ -110,6 +121,11 @@
 				BEF174FF241773CF00FBE3C8 /* CircleImage.swift */,
 				BEF174FD241773CF00FBE3C8 /* GraphCapsule.swift */,
 				BEF17503241773CF00FBE3C8 /* RotatedBadgeSymbol.swift */,
+				BE0F73B824190E64004E3F4B /* AudioWaveView.swift */,
+				BE0F73BC24193D12004E3F4B /* RoundCorner.swift */,
+				BE0F73BE24195210004E3F4B /* HertzBar.swift */,
+				BE0F73C024195FCD004E3F4B /* RecordingButton.swift */,
+				BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -168,7 +184,6 @@
 		BEF175182417A64800FBE3C8 /* Measurement */ = {
 			isa = PBXGroup;
 			children = (
-				BE54E951241801920074BE3B /* AudioView.swift */,
 				BEB4A3C2241770F700904CBA /* MeasurementView.swift */,
 				BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */,
 				BEF174FE241773CF00FBE3C8 /* MeasurementGraph.swift */,
@@ -249,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF1751724177C7000FBE3C8 /* HexagonParameters.swift in Sources */,
+				BE0F73C124195FCD004E3F4B /* RecordingButton.swift in Sources */,
 				BEB4A3BF241770F700904CBA /* AppDelegate.swift in Sources */,
+				BE0F73BD24193D12004E3F4B /* RoundCorner.swift in Sources */,
 				BEF17508241773CF00FBE3C8 /* CircleImage.swift in Sources */,
 				BEF17504241773CF00FBE3C8 /* BadgeSymbol.swift in Sources */,
 				BEF1750F241774D100FBE3C8 /* Bucket.swift in Sources */,
@@ -261,10 +278,13 @@
 				BEF175112417753400FBE3C8 /* Measurement.swift in Sources */,
 				BEB4A3C1241770F700904CBA /* SceneDelegate.swift in Sources */,
 				BEF1751524177C4700FBE3C8 /* BadgeBackground.swift in Sources */,
+				BE0F73C3241961CF004E3F4B /* MicrophoneAccessButton.swift in Sources */,
 				BEF17507241773CF00FBE3C8 /* MeasurementGraph.swift in Sources */,
 				BE54E9602418C7810074BE3B /* TempiAudioInput.swift in Sources */,
 				BEF17509241773CF00FBE3C8 /* Badge.swift in Sources */,
+				BE0F73B924190E64004E3F4B /* AudioWaveView.swift in Sources */,
 				BE54E94A2417DCC40074BE3B /* MeasurementRowView.swift in Sources */,
+				BE0F73BF24195210004E3F4B /* HertzBar.swift in Sources */,
 				BEB4A3C3241770F700904CBA /* MeasurementView.swift in Sources */,
 				BEF1750C241773CF00FBE3C8 /* RotatedBadgeSymbol.swift in Sources */,
 				BE54E952241801920074BE3B /* AudioView.swift in Sources */,

@@ -14,34 +14,33 @@ import Combine
 class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelegate {
     
     struct Data {
-        var isRecording: Bool = false
-        var bands: [Double] = []
+        var isReceivingAudio: Bool
+        var bands: [Double]
     }
     
     private var audioInput: TempiAudioInput?
     private let sampleRate: Float = 44100
-    private let refreshRate = 0.01
-    private let numberOfBands = 11
+    private let refreshRate: Double = 1
+    private let numberOfBands = 24
     
     public let objectWillChange = PassthroughSubject<MeasurementOrchestrator.Data, Never>()
     
-    @Published public var data: MeasurementOrchestrator.Data {
-        willSet{objectWillChange.send(data)}
-    }
+    @Published public var data: MeasurementOrchestrator.Data
     
-    init(isRecording: Bool = false, bands: [Double] = []) {
-        self.data = .init(isRecording: isRecording, bands: bands)
+    init(isReceivingAudio: Bool = false, bands: [Double] = []) {
+        self.data = .init(isReceivingAudio: isReceivingAudio, bands: bands)
         super.init()
     }
     
-    public func startRecording() {
+    public func startReceivingSound() {
+        self.data.isReceivingAudio = true
+        self.objectWillChange.send(self.data)
         let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
             self.audioInputCallback(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
 
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1, refreshRate: refreshRate)
         audioInput!.startRecording()
-        self.data.isRecording = true
     }
     
     private func audioInputCallback(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
@@ -50,11 +49,12 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
         let fft = TempiFFT(withSize: numberOfFrames, sampleRate: sampleRate)
         fft.windowType = TempiFFTWindowType.hanning
         fft.fftForward(samples)
-        fft.calculateLinearBands(minFrequency: 0, maxFrequency: fft.nyquistFrequency, numberOfBands: numberOfBands)
+        fft.calculateLinearBands(minFrequency: 20, maxFrequency: fft.nyquistFrequency, numberOfBands: numberOfBands)
 
         let minDB: Double = -48
         
         DispatchQueue.main.async {
+            guard self.data.isReceivingAudio else {return}
             self.data.bands = (0..<fft.numberOfBands).map { bandIndex in
                 let magnitude = fft.magnitudeAtBand(bandIndex)
                 // Incoming magnitudes are linear, making it impossible to see very low or very high values. Decibels to the rescue!
@@ -62,12 +62,14 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
                 // Normalize the incoming magnitude so that -Inf = 0
                 return max(0, magnitudeDB + abs(minDB))
             }
+            self.objectWillChange.send(self.data)
         }
     }
     
-    public func endRecording() {
+    public func endReceivingSound() {
+        self.data.isReceivingAudio = false
+        self.objectWillChange.send(self.data)
         audioInput?.stopRecording()
-        self.data.isRecording = false
     }
     
 }
