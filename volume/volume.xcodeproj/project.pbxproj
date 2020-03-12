@@ -18,6 +18,14 @@
 		BE54E95C2418C7810074BE3B /* TempiDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9562418C7810074BE3B /* TempiDebug.swift */; };
 		BE54E95D2418C7810074BE3B /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9572418C7810074BE3B /* TempiFFT.swift */; };
 		BE54E9602418C7810074BE3B /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E95A2418C7810074BE3B /* TempiAudioInput.swift */; };
+		BE5F6567241A15590002332C /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6566241A15590002332C /* ChartView.swift */; };
+		BE5F6569241A21650002332C /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6568241A21650002332C /* Gradients.swift */; };
+		BE5F6571241A3F370002332C /* InterpolatedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656B241A3F360002332C /* InterpolatedShape.swift */; };
+		BE5F6572241A3F370002332C /* AnimatableDataSimilarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656C241A3F370002332C /* AnimatableDataSimilarShape.swift */; };
+		BE5F6573241A3F370002332C /* Path+VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656D241A3F370002332C /* Path+VectorArithmetic.swift */; };
+		BE5F6574241A3F370002332C /* Path+Length.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656E241A3F370002332C /* Path+Length.swift */; };
+		BE5F6575241A3F370002332C /* SimilarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656F241A3F370002332C /* SimilarShape.swift */; };
+		BE5F6576241A3F370002332C /* Array+VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6570241A3F370002332C /* Array+VectorArithmetic.swift */; };
 		BE5F6E442418E1780075924B /* Path+ControlPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6E432418E1780075924B /* Path+ControlPoints.swift */; };
 		BEB4A3BF241770F700904CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A3BE241770F700904CBA /* AppDelegate.swift */; };
 		BEB4A3C1241770F700904CBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A3C0241770F700904CBA /* SceneDelegate.swift */; };
@@ -50,6 +58,14 @@
 		BE54E9562418C7810074BE3B /* TempiDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiDebug.swift; sourceTree = "<group>"; };
 		BE54E9572418C7810074BE3B /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
 		BE54E95A2418C7810074BE3B /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
+		BE5F6566241A15590002332C /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		BE5F6568241A21650002332C /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
+		BE5F656B241A3F360002332C /* InterpolatedShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolatedShape.swift; sourceTree = "<group>"; };
+		BE5F656C241A3F370002332C /* AnimatableDataSimilarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableDataSimilarShape.swift; sourceTree = "<group>"; };
+		BE5F656D241A3F370002332C /* Path+VectorArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+VectorArithmetic.swift"; sourceTree = "<group>"; };
+		BE5F656E241A3F370002332C /* Path+Length.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Path+Length.swift"; sourceTree = "<group>"; };
+		BE5F656F241A3F370002332C /* SimilarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarShape.swift; sourceTree = "<group>"; };
+		BE5F6570241A3F370002332C /* Array+VectorArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+VectorArithmetic.swift"; sourceTree = "<group>"; };
 		BE5F6E432418E1780075924B /* Path+ControlPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path+ControlPoints.swift"; sourceTree = "<group>"; };
 		BEB4A3BB241770F700904CBA /* volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB4A3BE241770F700904CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,9 +109,23 @@
 			path = "Fourier Transform";
 			sourceTree = "<group>";
 		};
+		BE5F656A241A3F160002332C /* Path Animation */ = {
+			isa = PBXGroup;
+			children = (
+				BE5F656C241A3F370002332C /* AnimatableDataSimilarShape.swift */,
+				BE5F6570241A3F370002332C /* Array+VectorArithmetic.swift */,
+				BE5F656B241A3F360002332C /* InterpolatedShape.swift */,
+				BE5F656E241A3F370002332C /* Path+Length.swift */,
+				BE5F656D241A3F370002332C /* Path+VectorArithmetic.swift */,
+				BE5F656F241A3F370002332C /* SimilarShape.swift */,
+			);
+			path = "Path Animation";
+			sourceTree = "<group>";
+		};
 		BE5F6E412418E14E0075924B /* Supporting Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				BE5F656A241A3F160002332C /* Path Animation */,
 				BE5F6E422418E1580075924B /* Bezier Curves */,
 				BE54E9532418C6FD0074BE3B /* Fourier Transform */,
 			);
@@ -154,6 +184,7 @@
 				BEF1750D2417748C00FBE3C8 /* Models */,
 				BEAB08882417736B006E9B65 /* Supporting Views */,
 				BEB4A3BE241770F700904CBA /* AppDelegate.swift */,
+				BE5F6568241A21650002332C /* Gradients.swift */,
 				BEB4A3C0241770F700904CBA /* SceneDelegate.swift */,
 				BEB4A3C4241770F900904CBA /* Assets.xcassets */,
 				BEB4A3C9241770F900904CBA /* LaunchScreen.storyboard */,
@@ -188,6 +219,7 @@
 				BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */,
 				BEF174FE241773CF00FBE3C8 /* MeasurementGraph.swift */,
 				BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */,
+				BE5F6566241A15590002332C /* ChartView.swift */,
 			);
 			path = Measurement;
 			sourceTree = "<group>";
@@ -266,10 +298,14 @@
 				BEF1751724177C7000FBE3C8 /* HexagonParameters.swift in Sources */,
 				BE0F73C124195FCD004E3F4B /* RecordingButton.swift in Sources */,
 				BEB4A3BF241770F700904CBA /* AppDelegate.swift in Sources */,
+				BE5F6573241A3F370002332C /* Path+VectorArithmetic.swift in Sources */,
+				BE5F6575241A3F370002332C /* SimilarShape.swift in Sources */,
 				BE0F73BD24193D12004E3F4B /* RoundCorner.swift in Sources */,
 				BEF17508241773CF00FBE3C8 /* CircleImage.swift in Sources */,
+				BE5F6574241A3F370002332C /* Path+Length.swift in Sources */,
 				BEF17504241773CF00FBE3C8 /* BadgeSymbol.swift in Sources */,
 				BEF1750F241774D100FBE3C8 /* Bucket.swift in Sources */,
+				BE5F6571241A3F370002332C /* InterpolatedShape.swift in Sources */,
 				BEF175132417766500FBE3C8 /* Magnitude.swift in Sources */,
 				BE54E95D2418C7810074BE3B /* TempiFFT.swift in Sources */,
 				BE5F6E442418E1780075924B /* Path+ControlPoints.swift in Sources */,
@@ -280,12 +316,16 @@
 				BEF1751524177C4700FBE3C8 /* BadgeBackground.swift in Sources */,
 				BE0F73C3241961CF004E3F4B /* MicrophoneAccessButton.swift in Sources */,
 				BEF17507241773CF00FBE3C8 /* MeasurementGraph.swift in Sources */,
+				BE5F6572241A3F370002332C /* AnimatableDataSimilarShape.swift in Sources */,
 				BE54E9602418C7810074BE3B /* TempiAudioInput.swift in Sources */,
 				BEF17509241773CF00FBE3C8 /* Badge.swift in Sources */,
+				BE5F6569241A21650002332C /* Gradients.swift in Sources */,
 				BE0F73B924190E64004E3F4B /* AudioWaveView.swift in Sources */,
 				BE54E94A2417DCC40074BE3B /* MeasurementRowView.swift in Sources */,
 				BE0F73BF24195210004E3F4B /* HertzBar.swift in Sources */,
 				BEB4A3C3241770F700904CBA /* MeasurementView.swift in Sources */,
+				BE5F6567241A15590002332C /* ChartView.swift in Sources */,
+				BE5F6576241A3F370002332C /* Array+VectorArithmetic.swift in Sources */,
 				BEF1750C241773CF00FBE3C8 /* RotatedBadgeSymbol.swift in Sources */,
 				BE54E952241801920074BE3B /* AudioView.swift in Sources */,
 				BE54E9482417ACD90074BE3B /* MeasurementOrchestrator.swift in Sources */,
