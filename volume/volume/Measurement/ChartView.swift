@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct ChartView: View {
+    @State var bands: [Double] = []
     @State var isMicrophoneEnabled = false
     @State var nodgeWidth: CGFloat = 128
     
@@ -18,7 +19,7 @@ struct ChartView: View {
             Spacer()
             
             ZStack {
-                VStack {
+                ZStack {
                     CardView(
                         nodgeWidth: $nodgeWidth,
                         fill: LinearGradient(
@@ -27,6 +28,19 @@ struct ChartView: View {
                             endPoint: .top
                         )
                     )
+                    
+                    VStack {
+                        AudioWaveView(bands: self.bands)
+                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                            .frame(height: 168)
+                            .padding(.top, 42)
+                        HertzBar()
+                            .padding(.top, 8)
+                            .foregroundColor(Color.black)
+                            .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                        Spacer()
+                    }
+                    .padding(.horizontal, 32)
                 }
                 .shadow(color: Color.black.opacity(0.1), radius: 12, x: 0, y: 0)
                 .padding(.top, 32)
@@ -51,11 +65,11 @@ struct ChartView: View {
                                         .foregroundColor(Color.black)
                                 }
                             }
-                            .transition(.offset(x: 36))
+                            .transition(AnyTransition.opacity.combined(with: .offset(x: 36)))
                         }
                         
                         Button(action: {
-                            withAnimation {
+                            withAnimation(.interpolatingSpring(stiffness: 250, damping: 15)) {
                                 self.isMicrophoneEnabled.toggle()
                                 self.nodgeWidth = self.isMicrophoneEnabled ? 312 : 128
                             }
@@ -154,6 +168,8 @@ struct CardView<F: ShapeStyle>: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        ChartView(bands: [
+            0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40
+        ])
     }
 }
