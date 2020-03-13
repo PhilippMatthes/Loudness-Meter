@@ -10,8 +10,8 @@ import SwiftUI
 func rangeOfRanges<C: Collection>(_ ranges: C) -> Range<Double>
     where C.Element == Range<Double> {
     guard !ranges.isEmpty else { return 0..<0 }
-    let low = ranges.lazy.map { $0.lowerBound }.min()!
-    let high = ranges.lazy.map { $0.upperBound }.max()!
+    let low = ranges.lazy.map { $0.lowerBound }.min() ?? 0
+    let high = ranges.lazy.map { $0.upperBound }.max() ?? 0
     return low..<high
 }
 
@@ -19,27 +19,25 @@ func magnitude(of range: Range<Double>) -> Double {
     return range.upperBound - range.lowerBound
 }
 
-struct MeasurementGraph: View {
+struct MeasurementGraph<F: ShapeStyle>: View {
     var measurement: Measurement
-    var color: Color
+    var fill: F
     
     var body: some View {
         let data = measurement.buckets
         let overallRange = rangeOfRanges(data.lazy.map { $0.range })
-        let maxMagnitude = data.map { magnitude(of: $0.range) }.max()!
-        let heightRatio = (1 - CGFloat(maxMagnitude / magnitude(of: overallRange))) / 2
 
-        return GeometryReader { proxy in
+        return GeometryReader { geometry in
             HStack(alignment: .bottom, spacing: 1) {
                 ForEach(data.indices, id: \.self) { index in
                     GraphCapsule(
                         index: index,
-                        height: proxy.size.height,
+                        height: geometry.size.height,
                         range: data[index].range,
-                        overallRange: overallRange)
-                    .colorMultiply(self.color)
+                        overallRange: overallRange,
+                        fill: self.fill
+                    )
                 }
-                .offset(x: 0, y: proxy.size.height * heightRatio)
             }
         }
     }
@@ -53,7 +51,7 @@ let measurement2 = Measurement(startDate: Date().addingTimeInterval(-10000), end
 struct MeasurementGraph_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MeasurementGraph(measurement: measurement2, color: Color.black)
+            MeasurementGraph(measurement: measurement2, fill: Color.blue)
                 .frame(height: 300)
                 .padding(1)
         }

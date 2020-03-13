@@ -8,17 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BE0F73B924190E64004E3F4B /* AudioWaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73B824190E64004E3F4B /* AudioWaveView.swift */; };
-		BE0F73BD24193D12004E3F4B /* RoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73BC24193D12004E3F4B /* RoundCorner.swift */; };
 		BE0F73BF24195210004E3F4B /* HertzBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73BE24195210004E3F4B /* HertzBar.swift */; };
-		BE0F73C124195FCD004E3F4B /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73C024195FCD004E3F4B /* RecordingButton.swift */; };
-		BE0F73C3241961CF004E3F4B /* MicrophoneAccessButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */; };
 		BE54E9482417ACD90074BE3B /* MeasurementOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */; };
 		BE54E94A2417DCC40074BE3B /* MeasurementRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */; };
 		BE54E952241801920074BE3B /* AudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E951241801920074BE3B /* AudioView.swift */; };
 		BE54E95C2418C7810074BE3B /* TempiDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9562418C7810074BE3B /* TempiDebug.swift */; };
 		BE54E95D2418C7810074BE3B /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E9572418C7810074BE3B /* TempiFFT.swift */; };
 		BE54E9602418C7810074BE3B /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE54E95A2418C7810074BE3B /* TempiAudioInput.swift */; };
-		BE5F6567241A15590002332C /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6566241A15590002332C /* ChartView.swift */; };
+		BE5F6567241A15590002332C /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6566241A15590002332C /* MeasurementView.swift */; };
 		BE5F6569241A21650002332C /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6568241A21650002332C /* Gradients.swift */; };
 		BE5F6571241A3F370002332C /* InterpolatedShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656B241A3F360002332C /* InterpolatedShape.swift */; };
 		BE5F6572241A3F370002332C /* AnimatableDataSimilarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656C241A3F370002332C /* AnimatableDataSimilarShape.swift */; };
@@ -27,9 +24,12 @@
 		BE5F6575241A3F370002332C /* SimilarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F656F241A3F370002332C /* SimilarShape.swift */; };
 		BE5F6576241A3F370002332C /* Array+VectorArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6570241A3F370002332C /* Array+VectorArithmetic.swift */; };
 		BE5F6E442418E1780075924B /* Path+ControlPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5F6E432418E1780075924B /* Path+ControlPoints.swift */; };
+		BE8E98B6241B9E49004B0FCB /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E98B5241B9E49004B0FCB /* Colors.swift */; };
+		BE8E98BA241BAB85004B0FCB /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E98B9241BAB85004B0FCB /* PrivacyView.swift */; };
+		BE8E98BC241BC573004B0FCB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E98BB241BC573004B0FCB /* CardView.swift */; };
+		BE8E98BE241BC59F004B0FCB /* MicrophoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E98BD241BC59F004B0FCB /* MicrophoneButton.swift */; };
 		BEB4A3BF241770F700904CBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A3BE241770F700904CBA /* AppDelegate.swift */; };
 		BEB4A3C1241770F700904CBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A3C0241770F700904CBA /* SceneDelegate.swift */; };
-		BEB4A3C3241770F700904CBA /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB4A3C2241770F700904CBA /* MeasurementView.swift */; };
 		BEB4A3C5241770F900904CBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB4A3C4241770F900904CBA /* Assets.xcassets */; };
 		BEB4A3C8241770F900904CBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEB4A3C7241770F900904CBA /* Preview Assets.xcassets */; };
 		BEB4A3CB241770F900904CBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB4A3C9241770F900904CBA /* LaunchScreen.storyboard */; };
@@ -48,17 +48,14 @@
 
 /* Begin PBXFileReference section */
 		BE0F73B824190E64004E3F4B /* AudioWaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioWaveView.swift; sourceTree = "<group>"; };
-		BE0F73BC24193D12004E3F4B /* RoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCorner.swift; sourceTree = "<group>"; };
 		BE0F73BE24195210004E3F4B /* HertzBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HertzBar.swift; sourceTree = "<group>"; };
-		BE0F73C024195FCD004E3F4B /* RecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
-		BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneAccessButton.swift; sourceTree = "<group>"; };
 		BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementOrchestrator.swift; sourceTree = "<group>"; };
 		BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementRowView.swift; sourceTree = "<group>"; };
 		BE54E951241801920074BE3B /* AudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioView.swift; sourceTree = "<group>"; };
 		BE54E9562418C7810074BE3B /* TempiDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiDebug.swift; sourceTree = "<group>"; };
 		BE54E9572418C7810074BE3B /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
 		BE54E95A2418C7810074BE3B /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
-		BE5F6566241A15590002332C /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		BE5F6566241A15590002332C /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		BE5F6568241A21650002332C /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		BE5F656B241A3F360002332C /* InterpolatedShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolatedShape.swift; sourceTree = "<group>"; };
 		BE5F656C241A3F370002332C /* AnimatableDataSimilarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableDataSimilarShape.swift; sourceTree = "<group>"; };
@@ -67,10 +64,13 @@
 		BE5F656F241A3F370002332C /* SimilarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimilarShape.swift; sourceTree = "<group>"; };
 		BE5F6570241A3F370002332C /* Array+VectorArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+VectorArithmetic.swift"; sourceTree = "<group>"; };
 		BE5F6E432418E1780075924B /* Path+ControlPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Path+ControlPoints.swift"; sourceTree = "<group>"; };
+		BE8E98B5241B9E49004B0FCB /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		BE8E98B9241BAB85004B0FCB /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		BE8E98BB241BC573004B0FCB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BE8E98BD241BC59F004B0FCB /* MicrophoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneButton.swift; sourceTree = "<group>"; };
 		BEB4A3BB241770F700904CBA /* volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = volume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB4A3BE241770F700904CBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB4A3C0241770F700904CBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BEB4A3C2241770F700904CBA /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
 		BEB4A3C4241770F900904CBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEB4A3C7241770F900904CBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BEB4A3CA241770F900904CBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,10 +152,10 @@
 				BEF174FD241773CF00FBE3C8 /* GraphCapsule.swift */,
 				BEF17503241773CF00FBE3C8 /* RotatedBadgeSymbol.swift */,
 				BE0F73B824190E64004E3F4B /* AudioWaveView.swift */,
-				BE0F73BC24193D12004E3F4B /* RoundCorner.swift */,
 				BE0F73BE24195210004E3F4B /* HertzBar.swift */,
-				BE0F73C024195FCD004E3F4B /* RecordingButton.swift */,
-				BE0F73C2241961CF004E3F4B /* MicrophoneAccessButton.swift */,
+				BE8E98B9241BAB85004B0FCB /* PrivacyView.swift */,
+				BE8E98BB241BC573004B0FCB /* CardView.swift */,
+				BE8E98BD241BC59F004B0FCB /* MicrophoneButton.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -185,6 +185,7 @@
 				BEAB08882417736B006E9B65 /* Supporting Views */,
 				BEB4A3BE241770F700904CBA /* AppDelegate.swift */,
 				BE5F6568241A21650002332C /* Gradients.swift */,
+				BE8E98B5241B9E49004B0FCB /* Colors.swift */,
 				BEB4A3C0241770F700904CBA /* SceneDelegate.swift */,
 				BEB4A3C4241770F900904CBA /* Assets.xcassets */,
 				BEB4A3C9241770F900904CBA /* LaunchScreen.storyboard */,
@@ -215,11 +216,10 @@
 		BEF175182417A64800FBE3C8 /* Measurement */ = {
 			isa = PBXGroup;
 			children = (
-				BEB4A3C2241770F700904CBA /* MeasurementView.swift */,
 				BE54E9472417ACD90074BE3B /* MeasurementOrchestrator.swift */,
 				BEF174FE241773CF00FBE3C8 /* MeasurementGraph.swift */,
 				BE54E9492417DCC40074BE3B /* MeasurementRowView.swift */,
-				BE5F6566241A15590002332C /* ChartView.swift */,
+				BE5F6566241A15590002332C /* MeasurementView.swift */,
 			);
 			path = Measurement;
 			sourceTree = "<group>";
@@ -296,11 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEF1751724177C7000FBE3C8 /* HexagonParameters.swift in Sources */,
-				BE0F73C124195FCD004E3F4B /* RecordingButton.swift in Sources */,
 				BEB4A3BF241770F700904CBA /* AppDelegate.swift in Sources */,
 				BE5F6573241A3F370002332C /* Path+VectorArithmetic.swift in Sources */,
 				BE5F6575241A3F370002332C /* SimilarShape.swift in Sources */,
-				BE0F73BD24193D12004E3F4B /* RoundCorner.swift in Sources */,
 				BEF17508241773CF00FBE3C8 /* CircleImage.swift in Sources */,
 				BE5F6574241A3F370002332C /* Path+Length.swift in Sources */,
 				BEF17504241773CF00FBE3C8 /* BadgeSymbol.swift in Sources */,
@@ -314,20 +312,22 @@
 				BEF175112417753400FBE3C8 /* Measurement.swift in Sources */,
 				BEB4A3C1241770F700904CBA /* SceneDelegate.swift in Sources */,
 				BEF1751524177C4700FBE3C8 /* BadgeBackground.swift in Sources */,
-				BE0F73C3241961CF004E3F4B /* MicrophoneAccessButton.swift in Sources */,
 				BEF17507241773CF00FBE3C8 /* MeasurementGraph.swift in Sources */,
 				BE5F6572241A3F370002332C /* AnimatableDataSimilarShape.swift in Sources */,
 				BE54E9602418C7810074BE3B /* TempiAudioInput.swift in Sources */,
 				BEF17509241773CF00FBE3C8 /* Badge.swift in Sources */,
 				BE5F6569241A21650002332C /* Gradients.swift in Sources */,
 				BE0F73B924190E64004E3F4B /* AudioWaveView.swift in Sources */,
+				BE8E98BE241BC59F004B0FCB /* MicrophoneButton.swift in Sources */,
 				BE54E94A2417DCC40074BE3B /* MeasurementRowView.swift in Sources */,
 				BE0F73BF24195210004E3F4B /* HertzBar.swift in Sources */,
-				BEB4A3C3241770F700904CBA /* MeasurementView.swift in Sources */,
-				BE5F6567241A15590002332C /* ChartView.swift in Sources */,
+				BE8E98BA241BAB85004B0FCB /* PrivacyView.swift in Sources */,
+				BE5F6567241A15590002332C /* MeasurementView.swift in Sources */,
 				BE5F6576241A3F370002332C /* Array+VectorArithmetic.swift in Sources */,
+				BE8E98B6241B9E49004B0FCB /* Colors.swift in Sources */,
 				BEF1750C241773CF00FBE3C8 /* RotatedBadgeSymbol.swift in Sources */,
 				BE54E952241801920074BE3B /* AudioView.swift in Sources */,
+				BE8E98BC241BC573004B0FCB /* CardView.swift in Sources */,
 				BE54E9482417ACD90074BE3B /* MeasurementOrchestrator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

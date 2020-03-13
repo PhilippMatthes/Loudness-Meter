@@ -42,6 +42,22 @@ struct Measurement: Codable, Hashable, Identifiable {
     var id: String
     var buckets: [Bucket]
     
+    static let maxBuckets = 20
+    
+    static var savedMeasurements: [Measurement] {
+        get {
+            guard
+                let data = UserDefaults.standard.object(forKey: "savedMeasurements") as? Data,
+                let measurements = try? JSONDecoder().decode([Measurement].self, from: data)
+                else {return [Measurement]()}
+            return measurements
+        }
+        set {
+            let data = try! JSONEncoder().encode(newValue)
+            UserDefaults.standard.set(data, forKey: "savedMeasurements")
+        }
+    }
+    
     init?(startDate: Date, endDate: Date, magnitudes: [Double]) {
         guard !magnitudes.isEmpty else {return nil}
         self.startDate = startDate
@@ -49,8 +65,7 @@ struct Measurement: Codable, Hashable, Identifiable {
         self.magnitudes = magnitudes
         
         self.id = "\(startDate) - \(endDate)"
-        let maxBuckets = 20
-        let magnitudesPerBucket = max(2, magnitudes.count / maxBuckets)
+        let magnitudesPerBucket = max(2, magnitudes.count / Measurement.maxBuckets)
         self.buckets = magnitudes.chunked(into: magnitudesPerBucket).compactMap {
             Bucket(chunk: $0)
         }

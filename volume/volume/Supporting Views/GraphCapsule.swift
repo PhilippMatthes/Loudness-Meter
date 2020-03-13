@@ -7,11 +7,12 @@ A single line in the graph.
 
 import SwiftUI
 
-struct GraphCapsule: View {
+struct GraphCapsule<F: ShapeStyle>: View {
     var index: Int
     var height: CGFloat
     var range: Range<Double>
     var overallRange: Range<Double>
+    var fill: F
     
     var heightRatio: CGFloat {
         max(CGFloat(magnitude(of: range) / magnitude(of: overallRange)), 0.15)
@@ -22,8 +23,8 @@ struct GraphCapsule: View {
     }
     
     var body: some View {
-        Capsule()
-            .fill(Color.white)
+        RoundedRectangle(cornerRadius: 24)
+            .fill(fill)
             .frame(height: height * heightRatio)
             .offset(x: 0, y: height * -offsetRatio)
     }
@@ -31,6 +32,6 @@ struct GraphCapsule: View {
 
 struct GraphCapsule_Previews: PreviewProvider {
     static var previews: some View {
-        GraphCapsule(index: 0, height: 150, range: 10..<50, overallRange: 0..<100)
+        GraphCapsule(index: 0, height: 150, range: 10..<50, overallRange: 0..<100, fill: Color.red)
     }
 }

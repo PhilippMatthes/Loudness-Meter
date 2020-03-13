@@ -1,61 +1,132 @@
 //
-//  ContentView.swift
+//  MeasurementView.swift
 //  volume
 //
-//  Created by It's free real estate on 10.03.20.
+//  Created by It's free real estate on 12.03.20.
 //  Copyright © 2020 Philipp Matthes. All rights reserved.
 //
 
 import SwiftUI
-import Combine
 
 
 struct MeasurementView: View {
-    @EnvironmentObject public var orchestrator: MeasurementOrchestrator
+    @EnvironmentObject var orchestrator: MeasurementOrchestrator
     
+    @State var measurements: [Measurement] = Measurement.savedMeasurements
     @State var bands: [Double] = []
-    @State var isReceivingAudio: Bool = false
+    @State var isReceivingAudio = false
+    @State var nodgeWidth: CGFloat = 128
+    @State var nodgeHeight: CGFloat = 32
+    @State var recordedMeasurement: Measurement?
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            VStack {
+        ZStack {
+            VStack(alignment: .center) {
                 if self.isReceivingAudio {
-                    RecordingButton(isRecording: false, action: {})
-                }
-                
-                VStack {
-                    MicrophoneAccessButton(isAccessAllowed: self.isReceivingAudio, action: {
-                        self.isReceivingAudio ? self.orchestrator.endReceivingSound() : self.orchestrator.startReceivingSound()
-                    })
-                    .padding(.bottom, self.isReceivingAudio ? 0 : 32)
-                    
-                    if self.isReceivingAudio {
+                    Spacer()
+                } else {
+                    if self.measurements.isEmpty {
+                        PrivacyView()
+                        Spacer()
                         VStack {
-                            AudioWaveView(bands: self.bands)
-                                .foregroundColor(Color.white)
-                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
-                            HertzBar()
-                                .padding(.top, 8)
-                                .foregroundColor(Color.white)
-                                .transition(AnyTransition.move(edge: .bottom).combined(with: .opacity))
+                            Text("Getting Started")
+                                .font(.headline)
+                                .padding(.bottom, 12)
+                            Text("Tap the microphone button to start your measurement. Finish your measurement by tapping the microphone button again.")
+                                .font(.subheadline)
+                                .multilineTextAlignment(.center)
                         }
                         .padding(.horizontal, 32)
-                        .padding(.bottom, 32)
-                        .frame(height: 200 )
+                        .padding(.bottom, 128)
                     } else {
-                        HStack {
-                            Spacer()
+                        ScrollView(showsIndicators: false) {
+                            Text("Measurements")
+                                .font(.largeTitle)
+                                .padding(.horizontal, 28)
+                            ForEach(measurements, id: \.self) { measurement in
+                                MeasurementRowView(
+                                    measurement: measurement,
+                                    shouldExpandOnAppear: measurement == self.recordedMeasurement,
+                                    deleteAction: {
+                                        withAnimation(.easeInOut(duration: 0.5)) {
+                                            self.measurements = self.measurements.filter {$0 != measurement}
+                                            Measurement.savedMeasurements = self.measurements
+                                        }
+                                    }
+                                )
+                            }
+                            Spacer(minLength: self.isReceivingAudio ? 264 : 96)
                         }
                     }
                 }
-                .background(Color.black)
-                .cornerRadius(32, corners: [.topLeft, .topRight])
             }
-            .background(Color.red)
-            .cornerRadius(32, corners: [.topLeft, .topRight])
+
+            
+            VStack {
+                Spacer()
+                
+                ZStack {
+                    ZStack {
+                        CardView(
+                            nodgeHeight: $nodgeHeight,
+                            nodgeWidth: $nodgeWidth,
+                            fill: LinearGradient(
+                                gradient: Gradients.kimoby,
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 0)
+                        .shadow(color: Colors.blue.opacity(0.2), radius: 26, x: 0, y: -12)
+                        
+                        VStack {
+                            if self.isReceivingAudio {
+                                AudioWaveView(bands: self.bands)
+                                    .transition(.opacity)
+                                    .padding(.top, 42)
+                                    .foregroundColor(Color.white)
+                                HertzBar()
+                                    .padding(.top, 8)
+                                    .foregroundColor(Color.white)
+                                    .transition(.opacity)
+                            }
+                        }
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 32)
+                    }
+                    .shadow(color: Color.black.opacity(0.1), radius: 12, x: 0, y: 0)
+                    .padding(.top, 32)
+                    
+                    VStack {
+                        MicrophoneButton(isActive: self.$isReceivingAudio, action: {
+                            withAnimation(.easeInOut(duration: 0.5)) {
+                                self.isReceivingAudio.toggle()
+                                self.nodgeWidth = self.isReceivingAudio ? 148 : 128
+                                self.nodgeHeight = self.isReceivingAudio ? 38 : 32
+                                if self.isReceivingAudio {
+                                    self.orchestrator.startReceivingSound()
+                                } else {
+                                    let measurement = self.orchestrator.endReceivingSound()
+                                    if let measurement = measurement {
+                                        self.recordedMeasurement = measurement
+                                        self.measurements = [measurement] + self.measurements
+                                        Measurement.savedMeasurements = self.measurements
+                                    }
+                                }
+                            }
+                        })
+                        
+                        Spacer()
+                    }
+                }
+                .frame(height: self.isReceivingAudio ? 258 : 88)
+            }
         }
+        .background(LinearGradient(
+            gradient: Gradients.clouds,
+            startPoint: .bottom,
+            endPoint: .top
+        ))
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(self.orchestrator.objectWillChange) { data in
             if self.bands != data.bands {
@@ -73,30 +144,28 @@ struct MeasurementView: View {
 }
 
 
-#if DEBUG
-
 struct MeasurementView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        let measurements = (0...2).map {
+            measurementIndex in
+            Measurement(
+                startDate: Date(),
+                endDate: Date().addingTimeInterval(10000 * Double(measurementIndex)),
+                magnitudes: (0...Int.random(in: 10...200)).map {_ in Double.random(in: -50...50)}
+            )!
+        }
+        
+        
+        return Group {
             MeasurementView(
-                bands: [
-                    0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40
-                ],
-                isReceivingAudio: true
-            )
-            .environmentObject(MeasurementOrchestrator())
-            // .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                measurements: measurements,
+                bands: [0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40]
+            ).environmentObject(MeasurementOrchestrator())
             MeasurementView(
-                bands: [
-                    0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40
-                ],
-                isReceivingAudio: false
-            )
-            .environmentObject(MeasurementOrchestrator())
-            // .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                measurements: [],
+                bands: [0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40]
+            ).environmentObject(MeasurementOrchestrator())
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
         }
     }
 }
-
-#endif
-

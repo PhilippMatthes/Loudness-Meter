@@ -11,7 +11,10 @@ import UIKit
 
 struct MeasurementRowView: View {
     var measurement: Measurement
-    @State var showDetail = false
+    var color: Color = Colors.blue
+    @State var isExpanded = false
+    var shouldExpandOnAppear = false
+    var deleteAction: () -> Void
     
     var bigGraphTransition: AnyTransition {
         let insertion = AnyTransition.move(edge: .bottom)
@@ -38,8 +41,8 @@ struct MeasurementRowView: View {
     var body: some View {
         return VStack(alignment: .leading) {
             HStack {
-                if !showDetail {
-                    MeasurementGraph(measurement: measurement, color: Color.red)
+                if !isExpanded {
+                    MeasurementGraph(measurement: measurement, fill: self.color)
                         .frame(width: 64, height: 32)
                 }
                 
@@ -53,36 +56,49 @@ struct MeasurementRowView: View {
 
                 Button(action: {
                     withAnimation {
-                        self.showDetail.toggle()
+                        self.isExpanded.toggle()
                     }
                 }) {
                     Image(systemName: "chevron.right.circle")
                         .imageScale(.large)
                         .accentColor(Color.black)
-                        .rotationEffect(.degrees(showDetail ? 90 : 0))
-                        .scaleEffect(showDetail ? 1.5 : 1)
+                        .rotationEffect(.degrees(isExpanded ? 90 : 0))
+                        .scaleEffect(isExpanded ? 1.5 : 1)
                 }
             }
-            .padding(16)
+            .padding(12)
 
-            if showDetail {
-                VStack(alignment: .leading) {
+            if isExpanded {
+                VStack(alignment: .center) {
                     
-                    MeasurementGraph(measurement: measurement, color: Color.red)
-                        .frame(height: 200)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 16)
+                    HStack {
+                        Text("\(measurement.magnitudes.count) Entries")
+                        Spacer()
+                        Text("Max: \(Int(measurement.buckets.map {$0.range.upperBound}.max() ?? 0)) dB")
+                        Spacer()
+                        Text("\(max(2, measurement.magnitudes.count / Measurement.maxBuckets)) Entries / Bar")
+                    }
+                    .font(.footnote)
+                    .padding(.horizontal, 12)
+                    
+                    MeasurementGraph(
+                        measurement: measurement,
+                        fill: self.color
+                    )
+                    .frame(height: 218)
+                    .padding(.horizontal, 12)
                 
                     VStack(alignment: .leading) {
                         HStack {
                             Text("\(measurement.startDate, formatter: timeFormatter)")
                             Spacer()
-                            Text("\(measurement.magnitudes.count) Data Points")
+                            Text("Min: \(Int(measurement.buckets.map {$0.range.lowerBound}.max() ?? 0)) dB")
+                            .font(.footnote)
                             Spacer()
                             Text("\(measurement.endDate, formatter: timeFormatter)")
                         }
                         .font(.footnote)
-                        .padding(16)
+                        .padding(.horizontal, 12)
                         
                         HStack {
                             VStack(alignment: .leading) {
@@ -93,9 +109,18 @@ struct MeasurementRowView: View {
                                     .font(.footnote)
                             }
                             Spacer()
+                            Button(action: self.deleteAction) {
+                                Image(systemName: "trash")
+                                Text("Delete")
+                            }
+                            .padding(12)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.white, lineWidth: 2)
+                            )
                         }
                         .padding(16)
-                        .background(Color.red)
+                        .background(self.color)
                         .foregroundColor(Color.white)
                     }
                 }
@@ -104,9 +129,16 @@ struct MeasurementRowView: View {
         }
         .background(Color(red: 0.95, green: 0.95, blue: 0.95))
         .cornerRadius(8)
-        .padding(.horizontal, showDetail ? 8 : 16)
-        .shadow(color: showDetail ? Color.red.opacity(0.2) : Color.red.opacity(0.05), radius: 12, x: 0, y: 12)
-        .shadow(color: showDetail ? Color.black.opacity(0.2) : Color.black.opacity(0.1), radius: 22, x: 0, y: 32)
+        .padding(.horizontal, isExpanded ? 8 : 16)
+        .shadow(color: isExpanded ? self.color.opacity(0.2) : self.color.opacity(0.05), radius: 12, x: 0, y: 12)
+        .shadow(color: isExpanded ? Color.black.opacity(0.2) : Color.black.opacity(0.1), radius: 22, x: 0, y: 32)
+        .onAppear {
+            if self.shouldExpandOnAppear {
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    self.isExpanded = true
+                }
+            }
+        }
     }
 }
 
@@ -115,7 +147,7 @@ struct MeasurementRowView: View {
 
 struct MeasurementRowView_Previews: PreviewProvider {
     static var previews: some View {
-        let measurements = (0...2).map {
+        var measurements = (0...2).map {
             measurementIndex in
             Measurement(
                 startDate: Date(),
@@ -125,15 +157,15 @@ struct MeasurementRowView_Previews: PreviewProvider {
         }
         
         return ScrollView {
-            MeasurementRowView(
-                measurement: measurements[0],
-                showDetail: true
-            )
-            ForEach(measurements) {
-                measurement in
-                MeasurementRowView(
+            ForEach(measurements.indices, id: \.self) {
+                measurementIndex -> MeasurementRowView in
+                let measurement = measurements[measurementIndex]
+                return MeasurementRowView(
                     measurement: measurement,
-                    showDetail: false
+                    shouldExpandOnAppear: measurementIndex == 0,
+                    deleteAction: {
+                        measurements = measurements.filter {$0 == measurement}
+                    }
                 )
             }
         }

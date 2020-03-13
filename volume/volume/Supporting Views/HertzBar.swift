@@ -25,7 +25,7 @@ struct HertzBar: View {
                         control: CGPoint(x: frame.maxX, y: frame.height)
                     )
                 }
-                .stroke(style: StrokeStyle(lineWidth: 1))
+                .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
             }
             HStack {
                 Text("20 Hz")

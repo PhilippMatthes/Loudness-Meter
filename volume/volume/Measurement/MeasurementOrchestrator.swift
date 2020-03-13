@@ -15,26 +15,37 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
     
     struct Data {
         var isReceivingAudio: Bool
-        var bands: [Double]
+        var bands: [Magnitude]
+        var currentMagnitude: Magnitude
     }
+    
+    @Published public var data: MeasurementOrchestrator.Data
+    public let objectWillChange = PassthroughSubject<MeasurementOrchestrator.Data, Never>()
     
     private var audioInput: TempiAudioInput?
     private let sampleRate: Float = 44100
     private let refreshRate: Double = 1
     private let numberOfBands = 24
     
-    public let objectWillChange = PassthroughSubject<MeasurementOrchestrator.Data, Never>()
+    private var startDate: Date?
+    private var magnitudes = [Magnitude]()
     
-    @Published public var data: MeasurementOrchestrator.Data
     
-    init(isReceivingAudio: Bool = false, bands: [Double] = []) {
-        self.data = .init(isReceivingAudio: isReceivingAudio, bands: bands)
+    init(isReceivingAudio: Bool = false, bands: [Double] = [], currentMagnitude: Double = 0) {
+        data = .init(
+            isReceivingAudio: isReceivingAudio,
+            bands: bands,
+            currentMagnitude: currentMagnitude
+        )
         super.init()
     }
     
     public func startReceivingSound() {
-        self.data.isReceivingAudio = true
-        self.objectWillChange.send(self.data)
+        magnitudes = []
+        startDate = Date()
+        
+        data.isReceivingAudio = true
+        objectWillChange.send(data)
         let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
             self.audioInputCallback(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
@@ -49,27 +60,39 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
         let fft = TempiFFT(withSize: numberOfFrames, sampleRate: sampleRate)
         fft.windowType = TempiFFTWindowType.hanning
         fft.fftForward(samples)
-        fft.calculateLinearBands(minFrequency: 20, maxFrequency: fft.nyquistFrequency, numberOfBands: numberOfBands)
+        fft.calculateLinearBands(
+            minFrequency: 20,
+            maxFrequency: fft.nyquistFrequency,
+            numberOfBands: numberOfBands
+        )
 
         let minDB: Double = -48
         
+        guard data.isReceivingAudio else {return}
+        data.bands = (0..<fft.numberOfBands).map { bandIndex in
+            let magnitude = fft.magnitudeAtBand(bandIndex)
+            // Incoming magnitudes are linear, making it impossible to see very low or very high values. Decibels to the rescue!
+            let magnitudeDB = Double(TempiFFT.toDB(magnitude))
+            // Normalize the incoming magnitude so that -Inf = 0
+            return max(0, magnitudeDB + abs(minDB))
+        }
+        
+        data.currentMagnitude = data.bands.reduce(0, +) / Double(data.bands.count)
+        magnitudes.append(data.currentMagnitude)
+        
         DispatchQueue.main.async {
-            guard self.data.isReceivingAudio else {return}
-            self.data.bands = (0..<fft.numberOfBands).map { bandIndex in
-                let magnitude = fft.magnitudeAtBand(bandIndex)
-                // Incoming magnitudes are linear, making it impossible to see very low or very high values. Decibels to the rescue!
-                let magnitudeDB = Double(TempiFFT.toDB(magnitude))
-                // Normalize the incoming magnitude so that -Inf = 0
-                return max(0, magnitudeDB + abs(minDB))
-            }
             self.objectWillChange.send(self.data)
         }
     }
     
-    public func endReceivingSound() {
-        self.data.isReceivingAudio = false
-        self.objectWillChange.send(self.data)
+    @discardableResult public func endReceivingSound() -> Measurement? {
+        data.isReceivingAudio = false
+        objectWillChange.send(data)
         audioInput?.stopRecording()
+        
+        guard let startDate = startDate, !magnitudes.isEmpty else {return nil}
+        let endDate = Date()
+        return Measurement(startDate: startDate, endDate: endDate, magnitudes: magnitudes)
     }
     
 }

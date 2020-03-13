@@ -20,4 +20,9 @@ class Gradients {
         Color(red: 211/255, green: 16/255, blue: 39/255),
         Color(red: 234/255, green: 56/255, blue: 77/255),
     ])
+    
+    static let kimoby = Gradient(colors: [
+        Color(red: 57/255, green: 106/255, blue: 252/255),
+        Color(red: 41/255, green: 73/255, blue: 255/255),
+    ])
 }

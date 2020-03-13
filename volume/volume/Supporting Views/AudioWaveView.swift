@@ -25,7 +25,6 @@ struct AudioWaveView: View {
                         path.addLine(to: CGPoint(x: frame.maxX, y: midY))
                     }
                     .stroke(style: StrokeStyle(lineWidth: 1, dash: [1]))
-                    .foregroundColor(Color.black)
                     
                     HStack(alignment: .center, spacing: 8) {
                         ForEach(self.bands.indices, id: \.self) { bandIndex in
