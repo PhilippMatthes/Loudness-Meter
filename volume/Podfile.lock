@@ -1,0 +1,16 @@
+PODS:
+  - SwiftRater (1.8.0)
+
+DEPENDENCIES:
+  - SwiftRater
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftRater
+
+SPEC CHECKSUMS:
+  SwiftRater: 6094fa6e9b3866ff8beca0a871b4b5f9ab896a6d
+
+PODFILE CHECKSUM: bfa935b9b833ea1d4d2f0131ad99801275b68a69
+
+COCOAPODS: 1.5.3
