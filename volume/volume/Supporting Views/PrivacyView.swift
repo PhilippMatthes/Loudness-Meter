@@ -11,7 +11,7 @@ import UIKit
 
 struct PrivacyView: View {
     
-    var color: Color = Colors.blue
+    var color: Color = Color.red
     
     var body: some View {
         return VStack(alignment: .center) {

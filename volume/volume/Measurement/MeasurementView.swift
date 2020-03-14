@@ -14,7 +14,9 @@ struct MeasurementView: View {
     
     @State var measurements: [Measurement] = Measurement.savedMeasurements
     @State var bands: [Double] = []
+    @State var currentMagnitude: Magnitude = 0
     @State var isReceivingAudio = false
+    @State var nodgeOffset: CGFloat = 0
     @State var nodgeWidth: CGFloat = 128
     @State var nodgeHeight: CGFloat = 32
     @State var recordedMeasurement: Measurement?
@@ -24,9 +26,14 @@ struct MeasurementView: View {
             VStack(alignment: .center) {
                 if self.isReceivingAudio {
                     Spacer()
+                    AudioBar(currentDB: CGFloat(self.currentMagnitude), barFill: LinearGradient(gradient: Gradients.kimoby, startPoint: .top, endPoint: .bottom), barBackgroundFill: LinearGradient(gradient: Gradients.clouds, startPoint: .top, endPoint: .bottom))
+                        .padding(.bottom, 200)
+                    .offset(x: nodgeOffset)
+                        .transition(.move(edge: .bottom))
                 } else {
                     if self.measurements.isEmpty {
                         PrivacyView()
+                            .padding(.top, 12)
                         Spacer()
                         VStack {
                             Text("Getting Started")
@@ -68,6 +75,7 @@ struct MeasurementView: View {
                 ZStack {
                     ZStack {
                         CardView(
+                            nodgeOffset: $nodgeOffset,
                             nodgeHeight: $nodgeHeight,
                             nodgeWidth: $nodgeWidth,
                             fill: LinearGradient(
@@ -103,6 +111,7 @@ struct MeasurementView: View {
                                 self.isReceivingAudio.toggle()
                                 self.nodgeWidth = self.isReceivingAudio ? 148 : 128
                                 self.nodgeHeight = self.isReceivingAudio ? 38 : 32
+                                self.nodgeOffset = self.isReceivingAudio ? -64 : 0
                                 if self.isReceivingAudio {
                                     self.orchestrator.startReceivingSound()
                                 } else {
@@ -115,6 +124,7 @@ struct MeasurementView: View {
                                 }
                             }
                         })
+                        .offset(x: nodgeOffset)
                         
                         Spacer()
                     }
@@ -139,6 +149,11 @@ struct MeasurementView: View {
                     self.isReceivingAudio = data.isReceivingAudio
                 }
             }
+            if self.currentMagnitude != data.currentMagnitude {
+                withAnimation {
+                    self.currentMagnitude = data.currentMagnitude
+                }
+            }
         }
     }
 }
@@ -159,7 +174,8 @@ struct MeasurementView_Previews: PreviewProvider {
         return Group {
             MeasurementView(
                 measurements: measurements,
-                bands: [0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40]
+                bands: [0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40, 0, 10, 20, 30, 10, 5, 0, 140, 5, 50, 40],
+                isReceivingAudio: false
             ).environmentObject(MeasurementOrchestrator())
             MeasurementView(
                 measurements: [],

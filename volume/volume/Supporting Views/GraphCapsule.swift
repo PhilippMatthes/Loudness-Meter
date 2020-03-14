@@ -24,14 +24,18 @@ struct GraphCapsule<F: ShapeStyle>: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 24)
-            .fill(fill)
-            .frame(height: height * heightRatio)
-            .offset(x: 0, y: height * -offsetRatio)
+        .fill(fill)
+        .frame(height: height * heightRatio)
+        .offset(x: 0, y: height * -offsetRatio)
     }
 }
 
 struct GraphCapsule_Previews: PreviewProvider {
     static var previews: some View {
-        GraphCapsule(index: 0, height: 150, range: 10..<50, overallRange: 0..<100, fill: Color.red)
+        let measurement2 = Measurement(startDate: Date().addingTimeInterval(-10000), endDate: Date(), magnitudes: [5, 2, 10, 22])!
+        
+        return MeasurementGraph(measurement: measurement2, fill: Color.blue)
+           .frame(height: 300)
+           .background(Color.red)
     }
 }

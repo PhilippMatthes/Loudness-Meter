@@ -66,7 +66,7 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
             numberOfBands: numberOfBands
         )
 
-        let minDB: Double = -48
+        let minDB: Double = -86
         
         guard data.isReceivingAudio else {return}
         data.bands = (0..<fft.numberOfBands).map { bandIndex in

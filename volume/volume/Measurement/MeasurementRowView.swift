@@ -47,7 +47,7 @@ struct MeasurementRowView: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("\(Int(measurement.magnitudes.average.dbValue)) dB")
+                    Text("\(Int(measurement.averageMagnitude)) dB")
                         .font(.headline)
                     Text("\(measurement.endDate, formatter: dateFormatter)")
                 }
@@ -72,11 +72,18 @@ struct MeasurementRowView: View {
                 VStack(alignment: .center) {
                     
                     HStack {
-                        Text("\(measurement.magnitudes.count) Entries")
+                        HStack {
+                            Text("\(measurement.magnitudes.count)")
+                            Text("Entries")
+                            
+                        }
                         Spacer()
-                        Text("Max: \(Int(measurement.buckets.map {$0.range.upperBound}.max() ?? 0)) dB")
+                        Text("Max: \(Int(measurement.magnitudes.max() ?? 0)) dB")
                         Spacer()
-                        Text("\(max(2, measurement.magnitudes.count / Measurement.maxBuckets)) Entries / Bar")
+                        HStack {
+                            Text("\(max(2, measurement.magnitudes.count / Measurement.maxBuckets))")
+                            Text("Entries / Bar")
+                        }
                     }
                     .font(.footnote)
                     .padding(.horizontal, 12)
@@ -92,7 +99,7 @@ struct MeasurementRowView: View {
                         HStack {
                             Text("\(measurement.startDate, formatter: timeFormatter)")
                             Spacer()
-                            Text("Min: \(Int(measurement.buckets.map {$0.range.lowerBound}.max() ?? 0)) dB")
+                            Text("Min: \(Int(measurement.magnitudes.min() ?? 0)) dB")
                             .font(.footnote)
                             Spacer()
                             Text("\(measurement.endDate, formatter: timeFormatter)")
@@ -102,7 +109,7 @@ struct MeasurementRowView: View {
                         
                         HStack {
                             VStack(alignment: .leading) {
-                                Text("\(Int(measurement.magnitudes.average.dbValue)) dB")
+                                Text("\(Int(measurement.averageMagnitude)) dB")
                                     .font(.title)
                                     .fontWeight(.bold)
                                 Text("Average magnitude")
@@ -152,7 +159,7 @@ struct MeasurementRowView_Previews: PreviewProvider {
             Measurement(
                 startDate: Date(),
                 endDate: Date().addingTimeInterval(10000),
-                magnitudes: (0...Int.random(in: 10...200)).map {_ in Double.random(in: -50...50)}
+                magnitudes: (0...Int.random(in: 10...200)).map {_ in Double.random(in: 0...140)}
             )!
         }
         

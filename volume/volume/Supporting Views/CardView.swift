@@ -11,6 +11,7 @@ import SwiftUI
 struct CardView<F: ShapeStyle>: View {
     var topLeftCornerRadius: CGFloat = 32
     var topRightCornerRadius: CGFloat = 32
+    @Binding var nodgeOffset: CGFloat
     @Binding var nodgeHeight: CGFloat
     @Binding var nodgeWidth: CGFloat
     var fill: F
@@ -19,7 +20,7 @@ struct CardView<F: ShapeStyle>: View {
         GeometryReader { geometry in
             SimilarShape(path: Path { path in
                 let frame = geometry.frame(in: .local)
-                let centerX = frame.minX + (frame.maxX - frame.minX) / 2
+                let centerX = self.nodgeOffset + frame.minX + (frame.maxX - frame.minX) / 2
                 let nodgeBottomY = frame.minY + self.nodgeHeight
                 
                 // Bottom left

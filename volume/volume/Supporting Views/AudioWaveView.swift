@@ -12,7 +12,7 @@ struct AudioWaveView: View {
     var bands: [Double]
 
     var minDB: Double = 0
-    var maxDB: Double = 80
+    var maxDB: Double = 140
     
     var body: some View {
         VStack {

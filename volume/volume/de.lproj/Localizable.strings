@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  volume
+
+  Created by It's free real estate on 14.03.20.
+  Copyright © 2020 Philipp Matthes. All rights reserved.
+*/
+
+
+"Entries" = "Einträge";
+"Entries / Bar" = "Einträge / Bar";
+"Average magnitude" = "Durchschn. Lautstärke";
+"Delete" = "Löschen";
+"Getting Started" = "So geht's";
+"Tap the microphone button to start your measurement. Finish your measurement by tapping the microphone button again." = "Tippen Sie auf den Mikrofon-Button, um mit der Messung zu beginnen. Tippen Sie erneut auf diesen Button, um die Messung zu beenden.";
+"Measurements" = "Messungen";
+"All audio data remains on this device" = "Alle Audio-Daten bleiben auf diesem Gerät";
+"Privacy Protection" = "Datenschutz";
+"All audio data remains on this device and is not transmitted to third parties." = "Alle Audio-Daten verbleiben auf diesem Gerät und werden nicht an Dritte gesendet.";
+

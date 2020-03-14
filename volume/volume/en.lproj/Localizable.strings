@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  volume
+
+  Created by It's free real estate on 14.03.20.
+  Copyright © 2020 Philipp Matthes. All rights reserved.
+*/
+
+
+"Entries" = "Entries";
+"Entries / Bar" = "Entries / Bar";
+"Average magnitude" = "Average magnitude";
+"Delete" = "Delete";
+"Getting Started" = "Getting Started";
+"Tap the microphone button to start your measurement. Finish your measurement by tapping the microphone button again." = "Tap the microphone button to start your measurement. Finish your measurement by tapping the microphone button again.";
+"Measurements" = "Measurements";
+"All audio data remains on this device" = "All audio data remains on this device";
+"Privacy Protection" = "Privacy Protection";
+"All audio data remains on this device and is not transmitted to third parties." = "All audio data remains on this device and is not transmitted to third parties.";
+
