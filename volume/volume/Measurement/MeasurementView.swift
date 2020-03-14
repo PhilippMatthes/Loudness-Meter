@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftRater
 
 
 struct MeasurementView: View {
@@ -138,6 +139,9 @@ struct MeasurementView: View {
             endPoint: .top
         ))
         .edgesIgnoringSafeArea(.bottom)
+        .onAppear {
+            SwiftRater.check()
+        }
         .onReceive(self.orchestrator.objectWillChange) { data in
             if self.bands != data.bands {
                 withAnimation {

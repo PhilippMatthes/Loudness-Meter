@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,7 +68,7 @@
 		09CAC810CD34A037D179F4A52FE22AD7 /* SwiftRaterError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRaterError.swift; path = SwiftRater/SwiftRaterError.swift; sourceTree = "<group>"; };
 		09E95DBB20CAAA355946C4A3A67B4D28 /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = da.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		0A1C95D9AA50B80E8B2C68F55B620772 /* SwiftRaterBundleExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRaterBundleExtension.swift; path = SwiftRater/SwiftRaterBundleExtension.swift; sourceTree = "<group>"; };
-		0A2711C92EF04B67EEDAC91B8A393E72 /* SwiftRater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftRater.framework; path = SwiftRater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A2711C92EF04B67EEDAC91B8A393E72 /* SwiftRater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E3CA05B2B92AF767BDBC34951C2429 /* SwiftRater-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRater-umbrella.h"; sourceTree = "<group>"; };
 		1D1E4A106D1BA5B5FD42711E37EDFDEC /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = sk.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		209AEFD3AE490473A1D9D3519DCEAD20 /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = id.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		901F3F007730D9FF8821A97A9D45B077 /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = "pt-BR.lproj/SwiftRaterLocalization.strings"; sourceTree = "<group>"; };
 		920582056BC6CC797695C2561456DF13 /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = hu.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		9275AF9E54AB1C44EE385D716D00AF8E /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = es.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		986B260267814BBF47E944801578C8AE /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = de.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		98E2BB84C5C865293ADE3E2549CFF4CA /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = pl.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		99609E0259915985AA7FC31D4AA2E03F /* SwiftRater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftRater.h; path = SwiftRater/SwiftRater.h; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		C50A12A6E437532D66AE820ED27BF0AD /* SwiftRaterErrorCode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftRaterErrorCode.swift; path = SwiftRater/SwiftRaterErrorCode.swift; sourceTree = "<group>"; };
 		C872BF3F2A317BF0F90401845160CCD5 /* UsageDataManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UsageDataManager.swift; path = SwiftRater/UsageDataManager.swift; sourceTree = "<group>"; };
 		CE1F70FCE8C2E2A4F6653B71A116B06C /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = ms.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
-		D3D56DBC22999DAAEB3C372E965D5E4F /* Pods_volume.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_volume.framework; path = "Pods-volume.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D56DBC22999DAAEB3C372E965D5E4F /* Pods_volume.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_volume.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95CBA167D587163BD7211AB4E7DCAFB /* Pods-volume-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-volume-acknowledgements.plist"; sourceTree = "<group>"; };
 		E847D2F9A59CEE9D4364D236C5F3137B /* SwiftRaterLocalization.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = SwiftRaterLocalization.strings; path = vi.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
 		EAFF311BC35F87A27A9F9FBEE2EC2FC8 /* SwiftRater-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftRater-prefix.pch"; sourceTree = "<group>"; };
@@ -221,7 +221,6 @@
 				C872BF3F2A317BF0F90401845160CCD5 /* UsageDataManager.swift */,
 				755CA49A19F0D0E0AEA2D3B090AA650C /* Support Files */,
 			);
-			name = SwiftRater;
 			path = SwiftRater;
 			sourceTree = "<group>";
 		};
@@ -314,7 +313,38 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				ar,
+				ca,
+				cs,
+				da,
+				de,
+				el,
+				es,
+				fi,
+				fr,
+				he,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nl,
+				pl,
+				"pt-BR",
+				"pt-PT",
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				uk,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = DDAED0AA8AD81B2254A360D38A5D0A8B /* Products */;
@@ -452,11 +482,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-volume/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-volume/Pods-volume.modulemap";
 				OTHER_LDFLAGS = "";
@@ -491,11 +517,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftRater/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftRater/SwiftRater.modulemap";
 				PRODUCT_MODULE_NAME = SwiftRater;
 				PRODUCT_NAME = SwiftRater;
@@ -590,11 +612,7 @@
 				INFOPLIST_FILE = "Target Support Files/SwiftRater/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SwiftRater/SwiftRater.modulemap";
 				PRODUCT_MODULE_NAME = SwiftRater;
 				PRODUCT_NAME = SwiftRater;
@@ -686,11 +704,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-volume/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-volume/Pods-volume.modulemap";
 				OTHER_LDFLAGS = "";
