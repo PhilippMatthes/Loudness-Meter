@@ -11,17 +11,24 @@ typealias TempiAudioInputCallback = (
     _ timeStamp: Double,
     _ numberOfFrames: Int,
     _ samples: [Float]
-    ) -> Void
+) -> Void
 
 /// TempiAudioInput sets up an audio input session and notifies when new buffer data is available.
 class TempiAudioInput: NSObject {
     
-    private(set) var audioUnit: AudioUnit!
+    enum Failure {
+        case permissionsDenied
+        case setupFailed
+        case teardownFailed
+        case callbackFailed
+    }
+    
+    private(set) var audioUnit: AudioUnit?
     let audioSession : AVAudioSession = AVAudioSession.sharedInstance()
     var sampleRate: Float
     var numberOfChannels: Int
     var refreshRate: Double
-    
+
     /// When true, performs DC offset rejection on the incoming buffer before invoking the audioInputCallback.
     var shouldPerformDCOffsetRejection: Bool = false
     
@@ -35,7 +42,6 @@ class TempiAudioInput: NSObject {
     /// - Parameter numberOfChannels: The number of channels to set up the audio session with.
     
     init(audioInputCallback callback: @escaping TempiAudioInputCallback, sampleRate: Float = 44100.0, numberOfChannels: Int = 2, refreshRate: Double = 10) {
-        
         self.sampleRate = sampleRate
         self.numberOfChannels = numberOfChannels
         self.refreshRate = refreshRate
@@ -43,38 +49,65 @@ class TempiAudioInput: NSObject {
     }
 
     /// Start recording. Prompts for access to microphone if necessary.
-    func startRecording() {
-        do {
-            
-            if self.audioUnit == nil {
-                setupAudioSession()
-                setupAudioUnit()
+    func startRecording(completion: @escaping (Failure?) -> ()) {
+        setupAudioSession() { failure in
+            guard failure == nil else {
+                completion(failure)
+                return
             }
-            
-            try self.audioSession.setActive(true)
-            var osErr: OSStatus = 0
-            
-            osErr = AudioUnitInitialize(self.audioUnit)
-            assert(osErr == noErr, "*** AudioUnitInitialize err \(osErr)")
-            osErr = AudioOutputUnitStart(self.audioUnit)
-            assert(osErr == noErr, "*** AudioOutputUnitStart err \(osErr)")
-        } catch {
-            print("*** startRecording error: \(error)")
+            self.setupAudioUnit() { failure in
+                guard failure == nil else {
+                    completion(failure)
+                    return
+                }
+                
+                do {
+                    try self.audioSession.setActive(true)
+                    var osErr: OSStatus = 0
+                    
+                    guard let audioUnit = self.audioUnit else {
+                        completion(.setupFailed)
+                        return
+                    }
+                    osErr = AudioUnitInitialize(audioUnit)
+                    guard osErr == noErr else {
+                        completion(.setupFailed)
+                        return
+                    }
+                    
+                    osErr = AudioOutputUnitStart(audioUnit)
+                    guard osErr == noErr else {
+                        completion(.setupFailed)
+                        return
+                    }
+                } catch {
+                    completion(.setupFailed)
+                    return
+                }
+                completion(nil)
+            }
         }
     }
     
     /// Stop recording.
-    func stopRecording() {
+    func stopRecording(completion: @escaping (Failure?) -> ()) {
         do {
             var osErr: OSStatus = 0
             
-            osErr = AudioUnitUninitialize(self.audioUnit)
-            assert(osErr == noErr, "*** AudioUnitUninitialize err \(osErr)")
+            if let audioUnit = self.audioUnit {
+                osErr = AudioUnitUninitialize(audioUnit)
+                guard osErr == noErr else {
+                    completion(.teardownFailed)
+                    return
+                }
+            }
             
             try self.audioSession.setActive(false)
         } catch {
-            print("*** error: \(error)")
+            completion(.teardownFailed)
+            return
         }
+        completion(nil)
     }
     
     private let recordingCallback: AURenderCallback = { (inRefCon, ioActionFlags, inTimeStamp, inBusNumber, inNumberFrames, ioData) -> OSStatus in
@@ -90,13 +123,18 @@ class TempiAudioInput: NSObject {
                 mDataByteSize: 4,
                 mData: nil))
         
-        osErr = AudioUnitRender(audioInput.audioUnit,
+        guard let audioUnit = audioInput.audioUnit else {return osErr}
+        
+        osErr = AudioUnitRender(
+            audioUnit,
             ioActionFlags,
             inTimeStamp,
             inBusNumber,
             inNumberFrames,
-            &bufferList)
-        assert(osErr == noErr, "*** AudioUnitRender err \(osErr)")
+            &bufferList
+        )
+        
+        guard osErr == noErr else {return osErr}
         
         // Move samples from mData into our native [Float] format.
         var monoSamples = [Float]()
@@ -115,10 +153,9 @@ class TempiAudioInput: NSObject {
         return 0
     }
     
-    private func setupAudioSession() {
-        
+    private func setupAudioSession(completion: @escaping (Failure?) -> ()) {
         guard audioSession.availableCategories.contains(.record) else {
-            print("can't record! bailing.")
+            completion(.setupFailed)
             return
         }
         
@@ -136,16 +173,19 @@ class TempiAudioInput: NSObject {
             try audioSession.setPreferredIOBufferDuration(refreshRate)
             
             audioSession.requestRecordPermission { (granted) -> Void in
-                if !granted {
-                    print("*** record permission denied")
+                if granted {
+                    completion(nil)
+                } else {
+                    completion(.permissionsDenied)
                 }
             }
         } catch {
-            print("*** audioSession error: \(error)")
+            completion(.setupFailed)
+            return
         }
     }
     
-    private func setupAudioUnit() {
+    private func setupAudioUnit(completion: @escaping (Failure?) -> ()) {
         
         var componentDesc:AudioComponentDescription = AudioComponentDescription(
             componentType: OSType(kAudioUnitType_Output),
@@ -157,26 +197,39 @@ class TempiAudioInput: NSObject {
         var osErr: OSStatus = 0
         
         // Get an audio component matching our description.
-        let component: AudioComponent! = AudioComponentFindNext(nil, &componentDesc)
-        assert(component != nil, "Couldn't find a default component")
+        guard let component = AudioComponentFindNext(nil, &componentDesc) else {
+            completion(.setupFailed)
+            return
+        }
         
         // Create an instance of the AudioUnit
         var tempAudioUnit: AudioUnit?
         osErr = AudioComponentInstanceNew(component, &tempAudioUnit)
         self.audioUnit = tempAudioUnit
+        guard let audioUnit = self.audioUnit else {
+            completion(.setupFailed)
+            return
+        }
         
-        assert(osErr == noErr, "*** AudioComponentInstanceNew err \(osErr)")
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         // Enable I/O for input.
         var one:UInt32 = 1
-        
+
         osErr = AudioUnitSetProperty(audioUnit,
             kAudioOutputUnitProperty_EnableIO,
             kAudioUnitScope_Input,
             inputBus,
             &one,
             UInt32(MemoryLayout<UInt32>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         osErr = AudioUnitSetProperty(audioUnit,
             kAudioOutputUnitProperty_EnableIO,
@@ -184,7 +237,11 @@ class TempiAudioInput: NSObject {
             outputBus,
             &one,
             UInt32(MemoryLayout<UInt32>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         // Set format to 32 bit, floating point, linear PCM
         var streamFormatDesc:AudioStreamBasicDescription = AudioStreamBasicDescription(
@@ -205,7 +262,10 @@ class TempiAudioInput: NSObject {
             kAudioUnitScope_Input, outputBus,
             &streamFormatDesc,
             UInt32(MemoryLayout<AudioStreamBasicDescription>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         osErr = AudioUnitSetProperty(audioUnit,
             kAudioUnitProperty_StreamFormat,
@@ -213,7 +273,10 @@ class TempiAudioInput: NSObject {
             inputBus,
             &streamFormatDesc,
             UInt32(MemoryLayout<AudioStreamBasicDescription>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         // Set up our callback.
         var inputCallbackStruct = AURenderCallbackStruct(inputProc: recordingCallback, inputProcRefCon: UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()))
@@ -223,7 +286,10 @@ class TempiAudioInput: NSObject {
             inputBus,
             &inputCallbackStruct,
             UInt32(MemoryLayout<AURenderCallbackStruct>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
         
         // Ask CoreAudio to allocate buffers for us on render. (This is true by default but just to be explicit about it...)
         osErr = AudioUnitSetProperty(audioUnit,
@@ -232,7 +298,12 @@ class TempiAudioInput: NSObject {
             inputBus,
             &one,
             UInt32(MemoryLayout<UInt32>.size))
-        assert(osErr == noErr, "*** AudioUnitSetProperty err \(osErr)")
+        guard osErr == noErr else {
+            completion(.setupFailed)
+            return
+        }
+        
+        completion(nil)
     }
 }
 

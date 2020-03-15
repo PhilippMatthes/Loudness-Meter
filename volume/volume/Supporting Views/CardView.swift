@@ -11,7 +11,7 @@ import SwiftUI
 struct CardView<F: ShapeStyle>: View {
     var topLeftCornerRadius: CGFloat = 32
     var topRightCornerRadius: CGFloat = 32
-    @Binding var nodgeOffset: CGFloat
+    var nodgeOffset: CGFloat
     @Binding var nodgeHeight: CGFloat
     @Binding var nodgeWidth: CGFloat
     var fill: F

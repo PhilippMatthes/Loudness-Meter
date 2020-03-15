@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  volume
+
+  Created by It's free real estate on 14.03.20.
+  Copyright © 2020 Philipp Matthes. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "Lautstärke";
+"NSMicrophoneUsageDescription" = "Die App benötigt Zugriff auf das Mikrofon, um die Lautstärke zu messen.";

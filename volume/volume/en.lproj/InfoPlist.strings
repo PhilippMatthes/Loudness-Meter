@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  volume
+
+  Created by It's free real estate on 14.03.20.
+  Copyright © 2020 Philipp Matthes. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "Volume!";
+"NSMicrophoneUsageDescription" = "Allow access to the microphone to measure the current loudness.";

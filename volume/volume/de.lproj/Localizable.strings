@@ -17,4 +17,24 @@
 "All audio data remains on this device" = "Alle Audio-Daten bleiben auf diesem Gerät";
 "Privacy Protection" = "Datenschutz";
 "All audio data remains on this device and is not transmitted to third parties." = "Alle Audio-Daten verbleiben auf diesem Gerät und werden nicht an Dritte gesendet.";
+"Microphone access denied." = "Mikrofon-Zugriff verweigert.";
+"The recording could not be started, because you disabled microphone access for this app. Please enable the microphone access in the device settings to start with your measurement." = "Die Aufnahme konnte nicht gestartet werden, weil Sie den Mikrofon-Zugriff nicht gestattet haben. Erlauben Sie dieser App über die Einstellungen den Mikrofon-Zugriff, um fortzufahren.";
+"OK" = "OK";
+"There was a problem." = "Es gab ein Problem.";
+"The action you performed could not be executed. Please try again." = "Die Aktion konnte nicht ausgeführt werden. Bitte versuchen Sie es erneut.";
+"Dismiss" = "Schließen";
 
+"Very quiet ambient noise" = "Sehr leise Umgebungsgeräusche";
+"A volume lower than 20 dB can be found in particularly quiet places without wind." = "Geräuschpegel geringer als 20 dB findet man an besonders ruhigen Orten ohne Wind.";
+"Quiet ambient noise" = "Leise Umgebungsgeräusche";
+"A noise level between 20 dB and 40 dB can usually be found in quiet apartments with minor background noise, e.g. a running fan." = "Geräuschpegel zwischen 20 dB und 40 dB können an ruhigen Plätzen, wie z.B. einer ruhigen Wohnung mit leisen Geräuschquellen gefunden werden.";
+"Normal ambient noise" = "Normale Umgebungsgeräusche";
+"If the 40 dB threshold is exceeded, it is usually more difficult to concentrate. 40-60 dB corresponds to e.g. a normal conversation or a television." = "Sobald 40 dB überstiegen werden, fällt es Menschen in der Regel schwer, sich zu konzentrieren. 40-60 dB ist vergleichbar mit der Lautstärke einer normalen Konversation.";
+"Moderate ambient noise" = "Moderate Umgebungsgeräusche";
+"If you are permanently exposed to a volume of over 60 dB, the risk of cardiovascular diseases increases. A volume between 60 dB and 80 dB roughly corresponds to a vacuum cleaner or a car." = "Bei langfristiger Beeinflussung durch Lärm über 60 dB steigt das statistische Risiko für Herz-Kreislauf-Erkrankungen. Ein Geräuschpegel zwischen 60 dB und 80 dB entspricht einem vorbeifahrenden Kraftfahrzeug.";
+"High ambient noise" = "Starke Umgebungsgeräusche";
+"From a volume of approx. 80 dB, noise is perceived as unpleasant for people. With prolonged exposure to noise, hearing damage can occur. 80 dB to 100 dB correspond to loud ear phones." = "Ab 80 dB werden Geräusche als unangenehm wahrgenommen. Es besteht das Risiko für Gehörtschäden. 80-100 dB entsprechen in etwa zu laut eingestellten Kopfhörern.";
+"Very high ambient noise" = "Sehr starke Umgebungsgeräusche";
+"Continuous noise exposure above 100 dB should be avoided to prevent hearing damage. For example, noise sources such as chainsaws can be found in the range between 100 dB and 120 dB." = "Das kontinuierliche Auftreten von Geräuschen über 100 dB kann zu Gehörschäden führen. In den Bereich zwischen 100 und 120 dB werden Geräuschquellen wie z.B. Kettensägen eingeordnet.";
+"Dangerous ambient noise" = "Gefährliche Umgebungsgeräusche";
+"Noises above 120 dB can cause hearing damage after a short period of time. Such noise levels should therefore be avoided. Noises above 140 dB are as loud as a rocket launch or a gun bang." = "Bei einer Geräuschintensität über 120 dB können bereits nach kurzer Zeit Gehörschäden auftreten. Geräusche über 140 dB entsprechen zum Beispiel einem Raketenstart oder einem Pistolenschuss.";

@@ -14,9 +14,9 @@ import Combine
 class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelegate {
     
     struct Data {
-        var isReceivingAudio: Bool
         var bands: [Magnitude]
         var currentMagnitude: Magnitude
+        var digestedMagnitude: Magnitude
     }
     
     @Published public var data: MeasurementOrchestrator.Data
@@ -29,29 +29,47 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
     
     private var startDate: Date?
     private var magnitudes = [Magnitude]()
+    private var magnitudesToDigest = [Magnitude]()
+    private var digestInterval: TimeInterval
+    private var digestTimer: Timer?
     
     
-    init(isReceivingAudio: Bool = false, bands: [Double] = [], currentMagnitude: Double = 0) {
+    init(bands: [Double] = [], currentMagnitude: Double = 0, digestedMagnitude: Double = 0, digestInterval: TimeInterval = 2) {
         data = .init(
-            isReceivingAudio: isReceivingAudio,
             bands: bands,
-            currentMagnitude: currentMagnitude
+            currentMagnitude: currentMagnitude,
+            digestedMagnitude: digestedMagnitude
         )
+        self.digestInterval = digestInterval
         super.init()
     }
     
-    public func startReceivingSound() {
+    public func startReceivingSound(completion: @escaping (TempiAudioInput.Failure?) -> ()) {
         magnitudes = []
         startDate = Date()
         
-        data.isReceivingAudio = true
-        objectWillChange.send(data)
+        digestTimer = Timer.scheduledTimer(withTimeInterval: digestInterval, repeats: true) { _ in
+            self.digestMagnitude()
+        }
+        
         let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
             self.audioInputCallback(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
 
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1, refreshRate: refreshRate)
-        audioInput!.startRecording()
+        audioInput?.startRecording(completion: completion)
+    }
+    
+    @objc func digestMagnitude() {
+        if !magnitudesToDigest.isEmpty {
+            data.digestedMagnitude = magnitudesToDigest.reduce(0, +) / Double(magnitudesToDigest.count)
+            magnitudesToDigest.removeAll()
+        } else {
+            data.digestedMagnitude = data.currentMagnitude
+        }
+        DispatchQueue.main.async {
+            self.objectWillChange.send(self.data)
+        }
     }
     
     private func audioInputCallback(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
@@ -68,7 +86,6 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
 
         let minDB: Double = -86
         
-        guard data.isReceivingAudio else {return}
         data.bands = (0..<fft.numberOfBands).map { bandIndex in
             let magnitude = fft.magnitudeAtBand(bandIndex)
             // Incoming magnitudes are linear, making it impossible to see very low or very high values. Decibels to the rescue!
@@ -79,20 +96,34 @@ class MeasurementOrchestrator: NSObject, ObservableObject, AVAudioRecorderDelega
         
         data.currentMagnitude = data.bands.reduce(0, +) / Double(data.bands.count)
         magnitudes.append(data.currentMagnitude)
+        magnitudesToDigest.append(data.currentMagnitude)
         
         DispatchQueue.main.async {
             self.objectWillChange.send(self.data)
         }
     }
     
-    @discardableResult public func endReceivingSound() -> Measurement? {
-        data.isReceivingAudio = false
-        objectWillChange.send(data)
-        audioInput?.stopRecording()
+    struct EndReceivingSoundResponse {
+        let failure: TempiAudioInput.Failure?
+        let measurement: Measurement?
+    }
+    
+    public func endReceivingSound(completion: @escaping (EndReceivingSoundResponse) -> ()) {
+        digestTimer?.invalidate()
         
-        guard let startDate = startDate, !magnitudes.isEmpty else {return nil}
-        let endDate = Date()
-        return Measurement(startDate: startDate, endDate: endDate, magnitudes: magnitudes)
+        audioInput?.stopRecording() { failure in
+            guard failure == nil else {
+                completion(.init(failure: failure, measurement: nil))
+                return
+            }
+            
+            guard let startDate = self.startDate, !self.magnitudes.isEmpty else {
+                completion(.init(failure: nil, measurement: nil))
+                return
+            }
+            let endDate = Date()
+            completion(.init(failure: nil, measurement: Measurement(startDate: startDate, endDate: endDate, magnitudes: self.magnitudes)))
+        }
     }
     
 }

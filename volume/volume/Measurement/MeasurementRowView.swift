@@ -137,7 +137,6 @@ struct MeasurementRowView: View {
         .background(Color(red: 0.95, green: 0.95, blue: 0.95))
         .cornerRadius(8)
         .padding(.horizontal, isExpanded ? 8 : 16)
-        .shadow(color: isExpanded ? self.color.opacity(0.2) : self.color.opacity(0.05), radius: 12, x: 0, y: 12)
         .shadow(color: isExpanded ? Color.black.opacity(0.2) : Color.black.opacity(0.1), radius: 22, x: 0, y: 32)
         .onAppear {
             if self.shouldExpandOnAppear {

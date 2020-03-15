@@ -17,4 +17,25 @@
 "All audio data remains on this device" = "All audio data remains on this device";
 "Privacy Protection" = "Privacy Protection";
 "All audio data remains on this device and is not transmitted to third parties." = "All audio data remains on this device and is not transmitted to third parties.";
+"Microphone access denied." = "Microphone access denied.";
+"The recording could not be started, because you disabled microphone access for this app. Please enable the microphone access in the device settings to start with your measurement." = "The recording could not be started, because you disabled microphone access for this app. Please enable the microphone access in the device settings to start with your measurement.";
+"OK" = "OK";
+"There was a problem." = "There was a problem.";
+"The action you performed could not be executed. Please try again." = "The action you performed could not be executed. Please try again.";
+"Dismiss" = "Dismiss";
+
+"Very quiet ambient noise" = "Very quiet ambient noise";
+"A volume lower than 20 dB can be found in particularly quiet places without wind." = "A volume lower than 20 dB can be found in particularly quiet places without wind.";
+"Quiet ambient noise" = "Quiet ambient noise";
+"A noise level between 20 dB and 40 dB can usually be found in quiet apartments with minor background noise, e.g. a running fan." = "A noise level between 20 dB and 40 dB can usually be found in quiet apartments with minor background noise, e.g. a running fan.";
+"Normal ambient noise" = "Normal ambient noise";
+"If the 40 dB threshold is exceeded, it is usually more difficult to concentrate. 40-60 dB corresponds to e.g. a normal conversation or a television" = "If the 40 dB threshold is exceeded, it is usually more difficult to concentrate. 40-60 dB corresponds to e.g. a normal conversation or a television.";
+"Moderate ambient noise" = "Moderate ambient noise";
+"If you are permanently exposed to a volume of over 60 dB, the risk of cardiovascular diseases increases. A volume between 60 dB and 80 dB roughly corresponds to a vacuum cleaner or a car." = "If you are permanently exposed to a volume of over 60 dB, the risk of cardiovascular diseases increases. A volume between 60 dB and 80 dB roughly corresponds to a vacuum cleaner or a car.";
+"High ambient noise" = "High ambient noise";
+"From a volume of approx. 80 dB, noise is perceived as unpleasant for people. With prolonged exposure to noise, hearing damage can occur. 80 dB to 100 dB correspond to loud ear phones." = "From a volume of approx. 80 dB, noise is perceived as unpleasant for people. With prolonged exposure to noise, hearing damage can occur. 80 dB to 100 dB correspond to loud ear phones.";
+"Very high ambient noise" = "Very high ambient noise";
+"Continuous noise exposure above 100 dB should be avoided to prevent hearing damage. For example, noise sources such as chainsaws can be found in the range between 100 dB and 120 dB." = "Continuous noise exposure above 100 dB should be avoided to prevent hearing damage. For example, noise sources such as chainsaws can be found in the range between 100 dB and 120 dB.";
+"Dangerous ambient noise" = "Dangerous ambient noise";
+"Noises above 120 dB can cause hearing damage after a short period of time. Such noise levels should therefore be avoided. Noises above 140 dB are as loud as a rocket launch or a gun bang." = "Noises above 120 dB can cause hearing damage after a short period of time. Such noise levels should therefore be avoided. Noises above 140 dB are as loud as a rocket launch or a gun bang.";
 
